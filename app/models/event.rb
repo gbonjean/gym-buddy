@@ -7,4 +7,8 @@ class Event < ApplicationRecord
 
   has_one :chatroom, dependent: :destroy
   has_many :messages, through: :chatroom
+
+  validates :start_time, :end_time, presence: true
+
+  
 end

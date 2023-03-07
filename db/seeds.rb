@@ -68,9 +68,12 @@ User.create!(
 puts "OK!"
 
 print "Create Events..."
-10.times {
+20.times {
+  day = Date.today.day + rand(1..10)
+  hour = rand(6..20)
+  mins = [0, 30].sample
   event = Event.new(
-    start_time: Date.today + rand(1..10),
+    start_time: DateTime.new(2023, 3, day, hour, mins, 0),
     gym: Gym.all.sample,
     owner: User.all.sample,
     description: Faker::Lorem.sentences,
@@ -80,7 +83,7 @@ print "Create Events..."
     fitness: [true, false].sample,
     slots: rand(1..3)
   )
-  event.end_time = event.start_time + 1
+  event.end_time = event.start_time + [1800, 3600].sample
   event.save!
 }
 puts "OK!"

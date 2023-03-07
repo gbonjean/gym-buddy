@@ -4,7 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :disciplines, through: :user_disciplines
+  has_many :event_users, dependent: :destroy
   has_many :events, through: :event_users
+  
+  has_many :chatrooms, through: :events
   has_many :messages
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

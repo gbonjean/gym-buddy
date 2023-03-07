@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :event_users, dependent: :destroy
-  has_many :events, through: :event_users
-  
+  has_many :bookings, dependent: :destroy
+  has_many :events
+
   has_many :chatrooms, through: :events
   has_many :messages
 

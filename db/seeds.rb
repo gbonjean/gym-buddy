@@ -68,7 +68,7 @@ User.create!(
 puts "OK!"
 
 print "Create Events..."
-5.times {
+10.times {
   event = Event.new(
     start_time: Date.today + rand(1..10),
     gym: Gym.all.sample,

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "events#index"
 
+  resources :gyms, only: %i[index show]
+
   resources :events, only: %i[index create show update destroy] do
     collection do
       get :user

@@ -1,2 +1,9 @@
-<h2><%= gym.name %></h2>
-<p><%= gym.address %></p>
+<div class="map-bubble-container">
+  <div class="map-bubble_head">
+    <h2><%= gym.name %></h2>
+    <p><%= gym.address %></p>
+  </div>
+  <div class="details_btn_card">
+    <p><%= link_to "Voir l'évènement",  gym_path(gym) %></p>
+  </div>
+</div>

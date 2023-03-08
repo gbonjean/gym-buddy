@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
   end
-
+  
   def show
     @gym = @event.gym
     @is_owner = @event.owner == current_user

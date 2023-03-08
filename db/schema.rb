@@ -60,13 +60,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_230731) do
     t.index ["event_id"], name: "index_chatrooms_on_event_id"
   end
 
+  create_table "event_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_users_on_event_id"
+    t.index ["user_id"], name: "index_event_users_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "end_time"
     t.bigint "gym_id", null: false
     t.integer "slots"
     t.text "description"
-    t.bigint "owner_id", null: false
+    t.bigint "user_id", null: false
     t.boolean "same_level"
     t.boolean "musculation"
     t.boolean "cardio"
@@ -74,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_230731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gym_id"], name: "index_events_on_gym_id"
-    t.index ["owner_id"], name: "index_events_on_owner_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "gyms", force: :cascade do |t|
@@ -124,8 +134,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_230731) do
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
   add_foreign_key "chatrooms", "events"
+  add_foreign_key "event_users", "events"
+  add_foreign_key "event_users", "users"
   add_foreign_key "events", "gyms"
-  add_foreign_key "events", "users", column: "owner_id"
+  add_foreign_key "events", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end

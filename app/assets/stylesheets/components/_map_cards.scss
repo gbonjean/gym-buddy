@@ -1,0 +1,25 @@
+.map-bubble-container p, li{
+  font-family: $body-font;
+  list-style: none;
+}
+
+.map-bubble-container ul{
+  padding-left: 0;
+
+}
+
+.map-card_container{
+  padding-top: 5%;
+  background-color: #FAFAFA;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.details_btn_card a{
+  text-decoration: none;
+  color: #FAFAFA;
+  background-color: $orange ;
+  padding: 5%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

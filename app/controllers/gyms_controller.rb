@@ -15,5 +15,7 @@ class GymsController < ApplicationController
   end
 
   def show
+    @gym = Gym.find(params[:id])
+    @events = @gym.events
   end
 end

@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Evènements de la salle</h1>
+  <h3><%= @gym.name %></h3>
+  <p><%= @gym.address %></p>
+  <li>
+    <% @events.each do |event| %>
+      <ul>
+        Evènement de <%= event.owner.nickname %><br>
+        <%= "#{event.start_time.strftime('%d %B %Y')} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}" %>
+        <%= link_to "Voir l'évènement", event_path(event) %>
+      </ul>
+    <% end %>
+  </li>
+</div>

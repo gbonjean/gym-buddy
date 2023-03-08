@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
       get :chatroom
       get :asks
+      post :show, to: "events#show_update"
       post :asks, to: "events#asks_update"
     end
   end

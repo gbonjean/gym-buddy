@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings, dependent: :destroy
-  has_many :events
+  has_many :owned_events, class_name: 'Event', foreign_key: :owner_id
+  has_many :events, through: :bookings
 
   has_many :chatrooms, through: :events
   has_many :messages

@@ -72,8 +72,7 @@ print "Create Events..."
   event = Event.new(
     start_time: Date.today + rand(1..10),
     gym: Gym.all.sample,
-    # owner: User.all.sample,
-    user: User.all.sample,
+    owner: User.all.sample,
     description: Faker::Lorem.sentences,
     same_level: [true, false].sample,
     musculation: [true, false].sample,

@@ -1,0 +1,78 @@
+<div class="container">
+  <h1>Détails de l'évènement</h1>
+  <h2>Lieu</h2>
+  <%= render 'shared/gym_card' %>
+
+  <h2>Informations</h2>
+  <div class="card">
+    <h2>Date et heure</h2>
+    <%= "#{@event.start_time.strftime('%d %B %Y')} de #{@event.start_time.strftime('%Hh%M')} à #{@event.end_time.strftime('%Hh%M')}" %>
+
+    <div class="d-flex justify-content-between">
+      <div>
+        <h2>Créateur</h2>
+        <div class='d-flex'>
+          <%= cl_image_tag @event.owner.avatar.key, height: 50, width: 50 %>
+          <h5><%= @event.owner.nickname %></h5>
+        </div>
+      </div>
+      <div>
+        <h2>Niveau</h2>
+        <div class="d-flex justify-content-around">
+          <% if @event.musculation %>
+            <p>Musculation : <%= @event.owner.musculation_lvl %></p>
+          <% end %>
+          <% if @event.cardio %>
+            <p>Cardio : <%= @event.owner.cardio_lvl %></p>
+          <% end %>
+          <% if @event.fitness %>
+            <p>Fitness : <%= @event.owner.fitness_lvl %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <h2>Description</h2>
+    <%= @event.description %>
+  </div>
+
+  <h2>Participants</h2>
+  <div class="card">
+    <div class="d-flex justify-content-around">
+      <%= cl_image_tag @event.owner.avatar.key, height: 50, width: 50 %>
+      <% @participants.each do |participant| %>
+        <%= cl_image_tag participant.avatar.key, height: 50, width: 50 %>
+      <% end %>
+      <% @free_slots.times do %>
+        <%= image_tag 'Blank-Avatar.png', alt: "blank avatar", width: 75, height: 75, class: "rounded" %>
+      <% end %>
+    </div>
+    <p><strong><%= @free_slots %></strong> places disponibles</p>
+  </div>
+
+  <div class="d-grid gap-2">
+    <% if @is_owner %>
+        <% unless @askers.empty? %>
+          <button class="btn btn-primary d-flex align-items-center border-0 rounded" type="button">
+            <%= link_to "Vous avez des demandes de participation", asks_event_path, class: "nav-link text-light" %>
+          </button>
+        <% end %>
+        <button class="btn btn-outline-primary" type="button">Chat</button>
+        <button class="btn btn-danger" type="button">Annuler l'évènement</button>
+    <% else %>
+        <% if @participants.include? current_user %>
+          <button class="btn btn-outline-primary" type="button">Chat</button>
+          <button class="btn btn-danger" type="button">Annuler ma participation</button>
+        <% elsif @askers.include? current_user %>
+          <button class="btn btn-outline-primary" type="button" disabled>En attente de confirmation</button>
+          <button class="btn btn-danger" type="button">Annuler ma demande</button>
+        <% else %>
+          <button class="btn btn-primary" type="button">Demander à participer</button>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+
+              <%# <button type="button" class="btn btn-booking d-flex align-items-center border-0 rounded">
+                <%= link_to "Réserver", planet, class: "nav-link text-light" %>
+              <%# </button> %>

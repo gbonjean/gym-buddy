@@ -1,0 +1,32 @@
+<h1>Demandes</h1>
+<% @asks.each do |ask| %>
+  <div class="card">
+    <div class="d-flex justify-content-between">
+      <div>
+        <h2>Demande de</h2>
+        <div class="d-flex">
+          <%= cl_image_tag ask.user.avatar.key, height: 50, width: 50 %>
+          <h5><%= ask.user.nickname %></h5>
+        </div>
+      </div>
+      <div>
+        <h2>Niveau</h2>
+        <div class="d-flex justify-content-around">
+          <% if ask.user.musculation_lvl.positive? %>
+            <p>Musculation : <%= ask.user.musculation_lvl %></p>
+          <% end %>
+          <% if ask.user.cardio_lvl.positive? %>
+            <p>Cardio : <%= ask.user.cardio_lvl %></p>
+          <% end %>
+          <% if ask.user.fitness_lvl.positive? %>
+            <p>Fitness : <%= ask.user.fitness_lvl %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around">
+      <%= button_to 'Accepter', {controller: "events", action: "asks_update", booking_id: ask.id, accepted: true} %>
+      <%= button_to 'Refuser', {controller: "events", action: "asks_update", booking_id: ask.id, accepted: false} %>
+    </div>
+  </div>
+<% end %>

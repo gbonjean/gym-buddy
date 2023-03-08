@@ -1,7 +1,6 @@
 <div class="container">
   <h1>Evènements de la salle</h1>
-  <h3><%= @gym.name %></h3>
-  <p><%= @gym.address %></p>
+  <%= render 'shared/gym_card' %>
   <li>
     <% @events.each do |event| %>
       <ul>

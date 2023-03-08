@@ -8,63 +8,97 @@ print "Create gyms..."
 Gym.create!(
   name: 'Basic Fit',
   address: '19 rue Saint-Ferréol Marseille',
-  franchise: 'Basic Fit'
+  franchise: 'Basic Fit',
+  logo: 'clubs/BasicFit.png'
 )
 Gym.create!(
   name: 'Body Hit',
-  address: '20 rue Haxo Marseille'
+  address: '20 rue Haxo Marseille',
+  logo: 'clubs/BodyHit.png'
 )
 Gym.create!(
   name: "Fit N' Move",
-  address: '54 rue de Rome Marseille'
-)
-Gym.create!(
-  name: "Fitness Club 53",
-  address: '53 rue Grignan Marseille'
+  address: '54 rue de Rome Marseille',
+  logo: 'clubs/FitnMove.jpg'
 )
 Gym.create!(
   name: "KeepCool Marseille vieux port",
-  address: '87 rue Sainte Marseille'
+  address: '87 rue Sainte Marseille',
+  logo: 'clubs/KeepCool.jpg'
 )
 Gym.create!(
   name: "Fitness Park Bourse",
-  address: '17 cours Belsunce Marseille'
+  address: '17 cours Belsunce Marseille',
+  logo: 'clubs/FitnessPark.jpg'
 )
 puts "OK!"
 
 print "Create Users..."
-User.create!(
-  nickname: 'titi',
-  email: 'user1@gmail.com',
+user = User.new(
+  nickname: 'Guillaume',
+  email: 'guillaume@gmail.com',
   password: '123456',
   address: '20 rue Haxo Marseille',
   musculation_lvl: rand(0..3),
   cardio_lvl: rand(0..3),
-  fitness_lvl: rand(0..3),
-  avatar_url: 'https://images.unsplash.com/photo-1667147381300-bcfa93fc6a87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+  fitness_lvl: rand(0..3)
 )
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+user.avatar.attach(io: file, filename: "guillaume.png", content_type: "image/png")
+user.save!
 
-User.create!(
-  nickname: 'toto',
-  email: 'user2@gmail.com',
+user = User.new(
+  nickname: 'Paulin',
+  email: 'paulin@gmail.com',
   password: '123456',
   address: '20 rue Haxo Marseille',
   musculation_lvl: rand(0..3),
   cardio_lvl: rand(0..3),
-  fitness_lvl: rand(0..3),
-  avatar_url: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmVtbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60'
+  fitness_lvl: rand(0..3)
 )
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user3_ftmicb.jpg")
+user.avatar.attach(io: file, filename: "paulin.png", content_type: "image/png")
+user.save!
 
-User.create!(
-  nickname: 'tutu',
-  email: 'user3@gmail.com',
+user = User.new(
+  nickname: 'Jérôme',
+  email: 'jerome@gmail.com',
   password: '123456',
   address: '20 rue Haxo Marseille',
   musculation_lvl: rand(0..3),
   cardio_lvl: rand(0..3),
-  fitness_lvl: rand(0..3),
-  avatar_url: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG9tbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60'
+  fitness_lvl: rand(0..3)
 )
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user2_wuxonh.jpg")
+user.avatar.attach(io: file, filename: "jerome.png", content_type: "image/png")
+user.save!
+
+user = User.new(
+  nickname: 'Marie-Chantal',
+  email: 'mariechantal@gmail.com',
+  password: '123456',
+  address: '20 rue Haxo Marseille',
+  musculation_lvl: rand(0..3),
+  cardio_lvl: rand(0..3),
+  fitness_lvl: rand(0..3)
+)
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user4_rbnpdu.jpg")
+user.avatar.attach(io: file, filename: "mc.png", content_type: "image/png")
+user.save!
+
+user = User.new(
+  nickname: 'Le Chien',
+  email: 'lechien@gmail.com',
+  password: '123456',
+  address: '20 rue Haxo Marseille',
+  musculation_lvl: rand(0..3),
+  cardio_lvl: rand(0..3),
+  fitness_lvl: rand(0..3)
+)
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user5_fidg0w.jpg")
+user.avatar.attach(io: file, filename: "chien.png", content_type: "image/png")
+user.save!
+
 puts "OK!"
 
 print "Create Events..."

@@ -2,9 +2,10 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show show_update asks asks_update]
 
   def index
-    @events = Event.all
+    @owned = Event.all.select { |e| e.owner == current_user }
+    @invited = Event.all.select { |e| e.users.include? current_user }
   end
-  
+
   def show
     @gym = @event.gym
     @is_owner = @event.owner == current_user
@@ -45,6 +46,8 @@ class EventsController < ApplicationController
     @event.bookings.reject(&:accepted).each(&:destroy) if @free_slots.zero?
     redirect_to asks_event_path(slots: @free_slots)
   end
+
+  
 
   private
 

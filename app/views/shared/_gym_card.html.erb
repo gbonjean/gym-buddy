@@ -1,7 +1,7 @@
-  <div class="card d-flex flex-row">
-    <%= image_tag @gym.logo, alt: "logo", width: 75, height: 75, class: "rounded" %>
-    <div class="card-body">
-      <h5><%= @gym.name %></h5>
-      <p><%= @gym.address %></p>
+  <div class="card d-flex flex-row p-3 align-items-center text-bg-pumpkin border-0">
+    <%= image_tag @gym.logo, alt: "logo", width: 50, height: 50, class: "rounded-circle border border-2 border-white" %>
+    <div class="card-body py-0 px-3">
+      <h3 class="mb-0 text-white"><%= @gym.name %></h3>
+      <p class="mb-0 text-white"><%= @gym.address %></p>
     </div>
   </div>

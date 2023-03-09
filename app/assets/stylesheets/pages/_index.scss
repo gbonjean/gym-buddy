@@ -1,8 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   text-transform: uppercase;
+  letter-spacing: 0.05rem;
 }
 
 h3 {
@@ -39,6 +40,13 @@ h4 {
   background-color: $pumpkin;
   color: white;
   border: 2px solid $pumpkin;
+  transition: 0.5s;
+}
+
+.btn-full:hover {
+  background-color: $orange;
+  color: white;
+  border: 2px solid $orange;
 }
 
 .btn-border {
@@ -46,4 +54,14 @@ h4 {
   color: $pumpkin;
   border: 2px solid $pumpkin;
   width: 100%;
+}
+
+.btn-border:hover {
+  background-color: $orange;
+  color: white;
+  border: 2px solid $orange;
+}
+
+.mb-custom {
+  margin-bottom: 75px;
 }

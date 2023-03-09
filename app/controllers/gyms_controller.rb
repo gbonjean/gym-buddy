@@ -8,8 +8,9 @@ class GymsController < ApplicationController
         lat: gym.latitude,
         lng: gym.longitude,
 
-        info_window_html: render_to_string(partial: "info_window", locals: {gym: gym}),
-        marker_html: render_to_string(partial: "marker")
+        info_window: render_to_string(partial: "info_window", locals: {gym: gym}),
+        image_url: helpers.asset_url("marker-orange.png")
+
       }
     end
   end

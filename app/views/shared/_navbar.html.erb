@@ -1,23 +1,24 @@
 
-  <div class="navbar-container">
+<div data-controller="aftereffect" id="navbar-container">
 
-<%= link_to gyms_path do %>
-    <li class="list-navbar"><ion-icon name="menu-outline"><% link_to %></ion-icon></li>
- <% end %>
- <%= link_to events_path do %>
+  <%#= link_to gyms_path do %>
+    <li class="list-navbar"><ion-icon name="search-outline"></ion-icon></li>
+  <%# end %>
+
+  <%#= link_to  events_path do %>
     <li class="list-navbar"><ion-icon name="calendar-outline"></ion-icon></li>
-     <% end %>
+  <%# end %>
 
-    <li class="list-navbar-search"><ion-icon name="search-outline"></ion-icon></li>
+  <%#= link_to  create_path do %>
+    <li  class="list-navbar plus_create"><ion-icon name="add-outline"></ion-icon></li>
+  <%# end %>
 
-
+  <%#= link_to  chatrooms_path do %>
     <li class="list-navbar"><ion-icon name="chatbubbles-outline"></ion-icon></li>
+  <%# end %>
 
-
+  <%#= link_to  user_path do %>
     <li class="list-navbar"><ion-icon name="person-circle-outline"></ion-icon></li>
+  <%# end %>
 
-
-<%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
-    <li class="list-navbar"><ion-icon name="person-circle-outline"></ion-icon></li>
-  <% end %>
-  </div>
+</div>

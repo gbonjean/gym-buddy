@@ -1,76 +1,106 @@
 <div class="container">
 
-  <h1>Détails de l'évènement</h1>
-  <h2>Lieu</h2>
+  <h1 class="mt-3 mb-3">Détails de l'évènement</h1>
+  <h2 class="mb-2">Lieu</h2>
   <%= render 'shared/gym_card' %>
 
-  <h2>Informations</h2>
-  <div class="card">
-    <h2>Date et heure</h2>
-    <%= "#{@event.start_time.strftime('%d %B %Y')} de #{@event.start_time.strftime('%Hh%M')} à #{@event.end_time.strftime('%Hh%M')}" %>
-
-    <div class="d-flex justify-content-between">
-      <div>
-        <h2>Créateur</h2>
-        <div class='d-flex'>
-          <%= cl_image_tag @event.owner.avatar.key, height: 50, width: 50 %>
-          <h5><%= @event.owner.nickname %></h5>
-        </div>
-      </div>
-      <div>
-        <h2>Niveau</h2>
-        <div class="d-flex justify-content-around">
-          <% if @event.musculation %>
-            <p>Musculation : <%= @event.owner.musculation_lvl %></p>
-          <% end %>
-          <% if @event.cardio %>
-            <p>Cardio : <%= @event.owner.cardio_lvl %></p>
-          <% end %>
-          <% if @event.fitness %>
-            <p>Fitness : <%= @event.owner.fitness_lvl %></p>
-          <% end %>
-        </div>
+  <h2 class="mt-3 mb-2">Informations</h2>
+  <div class="card p-3 border-0">
+    <div class="row mb-3">
+      <h3>Date et heure</h3>
+      <p class="mb-0"><%= "#{@event.start_time.strftime('%d %B %Y')} de #{@event.start_time.strftime('%Hh%M')} à #{@event.end_time.strftime('%Hh%M')}" %></p>
+    </div>
+    <div class="row mb-3">
+      <h3>Lieu</h3>
+      <div class="d-flex align-items-center">
+        <%= cl_image_tag @event.owner.avatar.key, height: 30, width: 30, class: "rounded-circle me-2" %>
+        <strong><%= @event.owner.nickname %></strong>
       </div>
     </div>
-
-    <h2>Description</h2>
+    <div class="row mb-3">
+      <h3>Niveau</h3>
+      <div class="d-flex justify-content-start">
+        <% if @event.musculation %>
+          <div class="p-2 border border-1 border-pumpkin rounded me-2">
+            <h4 class="mb-1">Musculation</h4>
+            <div class="stars">
+              <ul class="list-group list-group-horizontal pt-0">
+                <% @event.owner.musculation_lvl.times do %>
+                  <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <% if @event.cardio %>
+          <div class="p-2 border border-1 border-pumpkin rounded me-2">
+            <h4 class="mb-1">Cardio</h4>
+            <div class="stars">
+              <ul class="list-group list-group-horizontal pt-0">
+                <% @event.owner.cardio_lvl.times do %>
+                  <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <% if @event.fitness %>
+          <div class="p-2 border border-1 border-pumpkin rounded">
+            <h4 class="mb-1">Fitness</h4>
+            <div class="stars">
+              <ul class="list-group list-group-horizontal pt-0">
+                <% @event.owner.fitness_lvl.times do %>
+                  <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <h3>Description</h3>
     <%= @event.description %>
   </div>
 
-  <h2>Participants</h2>
-  <div class="card">
-    <div class="d-flex justify-content-around">
-      <%= cl_image_tag @event.owner.avatar.key, height: 50, width: 50 %>
-      <% @participants.each do |participant| %>
-        <%= cl_image_tag participant.avatar.key, height: 50, width: 50 %>
+  <h2 class="mt-3 mb-2">Participants</h2>
+  <div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <% if @free_slots == 1 %>
+        <p class="mb-0"><strong><%= @free_slots %></strong> place disponible</p>
+      <% else %>
+        <p class="mb-0"><strong><%= @free_slots %></strong> places disponibles</p>
       <% end %>
-      <% @free_slots.times do %>
-        <%= image_tag 'Blank-Avatar.png', alt: "blank avatar", width: 75, height: 75, class: "rounded" %>
-      <% end %>
+      <div>
+        <%= cl_image_tag @event.owner.avatar.key, height: 30, width: 30, class: "rounded-circle me-1" %>
+        <% @participants.each do |participant| %>
+          <%= cl_image_tag participant.avatar.key, height: 30, width: 30, class: "rounded-circle me-1" %>
+        <% end %>
+        <% @free_slots.times do %>
+          <%= image_tag 'Blank-Avatar.png', alt: "blank avatar", width: 30, height: 30, class: "rounded-circle me-1" %>
+        <% end %>
+      </div>
     </div>
-    <p><strong><%= @free_slots %></strong> places disponibles</p>
   </div>
-
-  <div class="d-grid gap-2">
+  <div class="d-grid gap-2 mb-5">
     <% if @is_owner %>
         <% unless @askers.empty? %>
           <button class="btn btn-primary d-flex align-items-center border-0 rounded" type="button">
             <%= link_to "Vous avez des demandes de participation", asks_event_path(slots: @free_slots), class: "nav-link text-light" %>
           </button>
         <% end %>
-        <button class="btn btn-outline-primary" type="button">Chat</button>
-        <%= button_to "Annuler l'évènement", {controller: "events", action: "show_update", delete: true} %>
+        <button class="btn btn-full" type="button">Chat</button>
+        <%= button_to "Annuler l'évènement", { controller: "events", action: "show_update", delete: true}, {class: 'btn btn-danger text-white w-100'} %>
     <% else %>
         <% if @participants.include? current_user %>
           <button class="btn btn-outline-primary" type="button">Chat</button>
-          <%= button_to 'Annuler ma participation', {controller: "events", action: "show_update", cancel: true} %>
+          <%= button_to 'Annuler ma participation', {controller: "events", action: "show_update", cancel: true}, {class: 'btn btn-danger text-white w-100'}  %>
         <% elsif @askers.include? current_user %>
           <button class="btn btn-outline-primary" type="button" disabled>En attente de confirmation</button>
-          <%= button_to 'Annuler ma demande', {controller: "events", action: "show_update", cancel: true} %>
+          <%= button_to 'Annuler ma demande', {controller: "events", action: "show_update", cancel: true}, {class: 'btn btn-danger text-white w-100'}  %>
         <% elsif @free_slots.positive? %>
-          <%= button_to 'Demander à participer', {controller: "events", action: "show_update", ask: true} %>
+          <%= button_to 'Demander à participer', {controller: "events", action: "show_update", ask: true}, {class: 'btn btn-primary text-white w-100'}  %>
         <% end %>
     <% end %>
   </div>
+  <div class="mb-custom">
 </div>
-

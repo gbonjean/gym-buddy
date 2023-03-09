@@ -2,11 +2,22 @@
   <h1>Evènements de la salle</h1>
   <%= render 'shared/gym_card' %>
   <li>
-    <% @events.each do |event| %>
+    <% @events[0].each do |event| %>
       <ul>
-        Evènement de <%= event.owner.nickname %><br>
-        <%= "#{event.start_time.strftime('%d %B %Y')} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}" %>
-        <%= link_to "Voir l'évènement", event_path(event) %>
+        <div class='d-flex'>
+          <%= cl_image_tag event.owner.avatar.key, height: 50, width: 50 %>
+          <h5><%= event.owner.nickname %></h5>
+        </div>
+        <%= link_to event.description, event_path(event) %>
+      </ul>
+    <% end %>
+    <% @events[1].each do |event| %>
+      <ul>
+        <div class='d-flex'>
+          <%= cl_image_tag event.owner.avatar.key, height: 50, width: 50 %>
+          <h5><%= event.owner.nickname %></h5>
+        </div>
+        <%= link_to event.description, event_path(event) %>
       </ul>
     <% end %>
   </li>

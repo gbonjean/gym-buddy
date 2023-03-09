@@ -6,6 +6,7 @@ ruby "3.1.2"
 gem "geocoder"
 gem "faker"
 gem "cloudinary"
+gem 'i18n', '~> 1.12'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"

@@ -93,12 +93,12 @@
     <% else %>
         <% if @participants.include? current_user %>
           <button class="btn btn-outline-primary" type="button">Chat</button>
-          <%= button_to 'Annuler ma participation', {controller: "events", action: "show_update", cancel: true} %>
+          <%= button_to 'Annuler ma participation', {controller: "events", action: "show_update", cancel: true}, {class: 'btn btn-danger text-white w-100'}  %>
         <% elsif @askers.include? current_user %>
           <button class="btn btn-outline-primary" type="button" disabled>En attente de confirmation</button>
-          <%= button_to 'Annuler ma demande', {controller: "events", action: "show_update", cancel: true} %>
+          <%= button_to 'Annuler ma demande', {controller: "events", action: "show_update", cancel: true}, {class: 'btn btn-danger text-white w-100'}  %>
         <% elsif @free_slots.positive? %>
-          <%= button_to 'Demander à participer', {controller: "events", action: "show_update", ask: true} %>
+          <%= button_to 'Demander à participer', {controller: "events", action: "show_update", ask: true}, {class: 'btn btn-primary text-white w-100'}  %>
         <% end %>
     <% end %>
   </div>

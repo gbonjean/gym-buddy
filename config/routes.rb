@@ -11,4 +11,6 @@ Rails.application.routes.draw do
       post :asks, to: "events#asks_update"
     end
   end
+
+  get :profile, to: "profiles#show"
 end

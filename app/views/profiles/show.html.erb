@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Mon Profil</h1>
+  <%= cl_image_tag @user.avatar.key, height: 50, width: 50 %>
+  <h3>Pseudo</h3>
+  <p><%= @user.nickname %></p>
+  <h3>Adresse</h3>
+  <p><%= @user.address %></p>
+  <div class="row mb-3">
+    <h3>Niveau</h3>
+    <div class="d-flex justify-content-start">
+      <% if @user.musculation_lvl.positive? %>
+        <div class="p-2 border border-1 border-pumpkin rounded">
+          <h4 class="mb-1">Musculation</h4>
+          <div class="stars">
+            <ul class="list-group list-group-horizontal pt-0">
+              <% @user.musculation_lvl.times do %>
+                <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+      <% if @user.cardio_lvl.positive? %>
+        <div class="p-2 border border-1 border-pumpkin rounded">
+          <h4 class="mb-1">Cardio</h4>
+          <div class="stars">
+            <ul class="list-group list-group-horizontal pt-0">
+              <% @user.cardio_lvl.times do %>
+                <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+      <% if @user.fitness_lvl.positive? %>
+        <div class="p-2 border border-1 border-pumpkin rounded">
+          <h4 class="mb-1">Fitness</h4>
+          <div class="stars">
+            <ul class="list-group list-group-horizontal pt-0">
+              <% @user.fitness_lvl.times do %>
+                <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

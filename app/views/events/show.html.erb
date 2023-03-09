@@ -11,7 +11,7 @@
       <p class="mb-0"><%= "#{@event.start_time.strftime('%d %B %Y')} de #{@event.start_time.strftime('%Hh%M')} à #{@event.end_time.strftime('%Hh%M')}" %></p>
     </div>
     <div class="row mb-3">
-      <h3>Créateur</h3>
+      <h3>Lieu</h3>
       <div class="d-flex align-items-center">
         <%= cl_image_tag @event.owner.avatar.key, height: 30, width: 30, class: "rounded-circle me-2" %>
         <strong><%= @event.owner.nickname %></strong>
@@ -21,7 +21,7 @@
       <h3>Niveau</h3>
       <div class="d-flex justify-content-start">
         <% if @event.musculation %>
-          <div class="p-2 border border-1 border-pumpkin rounded">
+          <div class="p-2 border border-1 border-pumpkin rounded me-2">
             <h4 class="mb-1">Musculation</h4>
             <div class="stars">
               <ul class="list-group list-group-horizontal pt-0">
@@ -33,7 +33,7 @@
           </div>
         <% end %>
         <% if @event.cardio %>
-          <div class="p-2 border border-1 border-pumpkin rounded">
+          <div class="p-2 border border-1 border-pumpkin rounded me-2">
             <h4 class="mb-1">Cardio</h4>
             <div class="stars">
               <ul class="list-group list-group-horizontal pt-0">
@@ -81,8 +81,7 @@
       </div>
     </div>
   </div>
-
-  <div class="d-grid gap-2">
+  <div class="d-grid gap-2 mb-5">
     <% if @is_owner %>
         <% unless @askers.empty? %>
           <button class="btn btn-primary d-flex align-items-center border-0 rounded" type="button">
@@ -103,4 +102,5 @@
         <% end %>
     <% end %>
   </div>
+  <div class="mb-custom">
 </div>

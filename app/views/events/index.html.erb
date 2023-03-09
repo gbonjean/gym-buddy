@@ -1,7 +1,20 @@
 <h1>Events</h1>
 <li>
-  <% @events.each do |event| %>
+  <% @owned.each do |event| %>
     <ul>
+      <div class='d-flex'>
+          <%= cl_image_tag event.owner.avatar.key, height: 50, width: 50 %>
+          <h5><%= event.owner.nickname %></h5>
+      </div>
+      <%= link_to event.description, event_path(event) %>
+    </ul>
+  <% end %>
+    <% @invited.each do |event| %>
+    <ul>
+      <div class='d-flex'>
+          <%= cl_image_tag event.owner.avatar.key, height: 50, width: 50 %>
+          <h5><%= event.owner.nickname %></h5>
+      </div>
       <%= link_to event.description, event_path(event) %>
     </ul>
   <% end %>

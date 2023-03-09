@@ -2,9 +2,10 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show show_update asks asks_update]
 
   def index
-    @events = Event.all
+    @owned = Event.all.select { |e| e.owner == current_user }
+    @invited = Event.all.select { |e| e.users.include? current_user }
   end
-  
+
   def show
     @gym = @event.gym
     @is_owner = @event.owner == current_user
@@ -46,9 +47,28 @@ class EventsController < ApplicationController
     redirect_to asks_event_path(slots: @free_slots)
   end
 
+  def new
+    @event = Event.new
+  end
+
+  def create
+    @event = Event.new(event_params)
+    @event.owner = current_user
+    if @event.save
+      redirect_to events_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event)
+          .permit(:gym_id, :start_time, :end_time, :slots, :musculation, :cardio, :fitness, :same_level, :description)
   end
 end

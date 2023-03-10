@@ -114,7 +114,7 @@ user.save!
 puts "OK!"
 
 print "Create Events..."
-10.times do
+30.times do
   day = Date.today.day + rand(1..10)
   hour = rand(6..20)
   mins = [0, 30].sample

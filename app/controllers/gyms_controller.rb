@@ -17,6 +17,8 @@ class GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
-    @events = @gym.events.order(:start_time).reject { |event| event.owner == current_user }
+    @events = @gym.events
+                  .order(:start_time)
+                  .reject { |e| e.owner == current_user || e.users.include?(current_user) || (e.slots - e.bookings.select(&:accepted).size).zero? }
   end
 end

@@ -5,11 +5,11 @@
   <% else %>
     <% @events.each do |event| %>
       <div class="card p-3 border-0 mb-3">
-        <div class="row mb-3">
-          <h2 class="mb-3"><%= I18n.with_locale("fr") { I18n.l(event.start_time, format: "%d %B %Y") } %></h2>
+        <div class="d-flex justify-content-between align-items-baseline">
+          <h2 class="mb-3"><%= I18n.with_locale("fr") { I18n.l(event.start_time, format: "%d %B") } %></h2>
           <h3 class="mb-3"><%= "#{event.start_time.strftime('%Hh%M')} - #{event.end_time.strftime('%Hh%M')}" %></h3>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-4">
           <div class="d-flex align-items-center">
             <%= image_tag event.gym.logo, alt: "logo", width: 30, height: 30, class: "rounded-circle me-2" %>
             <p class="mb-0"><%= event.gym.name %></p>

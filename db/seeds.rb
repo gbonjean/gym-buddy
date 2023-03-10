@@ -1,35 +1,60 @@
 require 'faker'
 Event.delete_all
 Gym.delete_all
-
 User.delete_all
 
 print "Create gyms..."
 Gym.create!(
-  name: 'Basic Fit',
-  address: '19 rue Saint-Ferréol Marseille',
+  name: 'Basic Fit Saint-Ferréol',
+  address: '19 Rue Saint-Ferréol Marseille',
   franchise: 'Basic Fit',
   logo: 'clubs/BasicFit.png'
 )
 Gym.create!(
-  name: 'Body Hit',
-  address: '20 rue Haxo Marseille',
-  logo: 'clubs/BodyHit.png'
+  name: "So Good Campus",
+  address: '116 Avenue Jules Cantini, 13008 Marseille',
+  logo: 'clubs/sogood.png'
 )
 Gym.create!(
-  name: "Fit N' Move",
-  address: '54 rue de Rome Marseille',
-  logo: 'clubs/FitnMove.jpg'
-)
-Gym.create!(
-  name: "KeepCool Marseille vieux port",
-  address: '87 rue Sainte Marseille',
+  name: "KeepCool Vieux port",
+  address: '87 Rue Sainte, 13007 Marseille',
   logo: 'clubs/KeepCool.jpg'
 )
 Gym.create!(
   name: "Fitness Park Bourse",
-  address: '17 cours Belsunce Marseille',
+  address: '17 Cours Belsunce, 13001 Marseille',
   logo: 'clubs/FitnessPark.jpg'
+)
+Gym.create!(
+  name: "Keepcool Castellane",
+  address: '172 Rue de Rome, 13006 Marseille',
+  logo: 'clubs/KeepCool.jpg'
+)
+Gym.create!(
+  name: "L'Orange Bleue Longchamp",
+  address: '117 Boulevard Camille Flammarion, 13004 Marseille',
+  logo: 'clubs/orangebleue.png'
+)
+Gym.create!(
+  name: "Life Club",
+  address: '40 Rue du Docteur Escat, 13006 Marseille',
+  logo: 'clubs/lifeclub.jpg'
+)
+Gym.create!(
+  name: "Wellness Sport Club Prado",
+  address: '330 Avenue du Prado, 13008 Marseille',
+  logo: 'clubs/wellness.png'
+)
+Gym.create!(
+  name: "Fitness Park Terrasses du Port",
+  address: '9 Quai du Lazaret, 13002 Marseille',
+  logo: 'clubs/FitnessPark.jpg'
+)
+Gym.create!(
+  name: 'Basic-Fit Quai de la Joliette',
+  address: '4 Quai de la Joliette, 13002 Marseille',
+  franchise: 'Basic Fit',
+  logo: 'clubs/BasicFit.png'
 )
 puts "OK!"
 
@@ -74,29 +99,16 @@ user.avatar.attach(io: file, filename: "jerome.png", content_type: "image/png")
 user.save!
 
 user = User.new(
-  nickname: 'Marie-Chantal',
-  email: 'mariechantal@gmail.com',
+  nickname: 'Anan',
+  email: 'anan@gmail.com',
   password: '123456',
   address: '20 rue Haxo Marseille',
-  musculation_lvl: rand(1..3),
+  musculation_lvl: 3,
   cardio_lvl: rand(1..3),
   fitness_lvl: rand(1..3)
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user4_rbnpdu.jpg")
-user.avatar.attach(io: file, filename: "mc.png", content_type: "image/png")
-user.save!
-
-user = User.new(
-  nickname: 'Le Chien',
-  email: 'lechien@gmail.com',
-  password: '123456',
-  address: '20 rue Haxo Marseille',
-  musculation_lvl: rand(1..3),
-  cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3)
-)
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user5_fidg0w.jpg")
-user.avatar.attach(io: file, filename: "chien.png", content_type: "image/png")
+user.avatar.attach(io: file, filename: "anan.png", content_type: "image/png")
 user.save!
 
 puts "OK!"

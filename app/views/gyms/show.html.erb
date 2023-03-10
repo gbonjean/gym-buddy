@@ -2,7 +2,7 @@
   <h1 class="mt-3">Évènements de la salle</h1>
   <%= render 'shared/gym_card' %>
   <% if @events.empty? %>
-    <p>Il n'y a actuellement aucun évènement pour cette salle.</p>
+    <p class="my-3">Il n'y a actuellement aucun évènement pour cette salle.</p>
   <% else %>
     <% @events.each do |event| %>
       <div class="card p-3 border-0 my-3">

@@ -1,4 +1,4 @@
-#navbar-container{
+#navbar-container {
 position: fixed;
 display: flex;
 justify-content: space-evenly;
@@ -11,7 +11,7 @@ left: 0;
 box-shadow: rgba(0, 0, 0, 0.20) 0px -50px 36px -28px inset;
 }
 
-.list-navbar a {
+.list-navbar {
   padding-top: 3px;
   padding-left: 2%;
   padding-right: 2%;
@@ -26,7 +26,7 @@ box-shadow: rgba(0, 0, 0, 0.20) 0px -50px 36px -28px inset;
 }
 
 
-.plus_create{
+.plus_create {
 display: flex;
 justify-content: center;
 border-radius: 25%;

@@ -69,3 +69,15 @@ p {
 .mb-custom {
   margin-bottom: 75px;
 }
+
+.of-cover {
+  object-fit: cover;
+}
+
+.progress {
+  height: 30px;
+}
+
+.progress-bar {
+  background-color: $pumpkin;
+}

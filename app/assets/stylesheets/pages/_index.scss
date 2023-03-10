@@ -85,3 +85,14 @@ p {
 .ask-btn-block form {
   width: 50%;
 }
+
+.custom-label-form {
+  font-family: $headers-font;
+  text-transform: uppercase;
+  color: black;
+  font-size: 1.25rem;
+}
+
+.form-check fieldset {
+  margin-bottom: 0.25rem !important;
+}

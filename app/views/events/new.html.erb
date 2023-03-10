@@ -1,17 +1,24 @@
+
 <%= simple_form_for(@event) do |f| %>
-  <%= f.association :gym, label: 'Lieu' %>
+<%= f.association :gym, label: 'Lieu' %>
 
+<div class="row">
+  <div class="col">
     <%= f.input :start_time, as: :string, label: "Debut",
-                input_html: { data: { controller: "flatpickr" } } %>
-
+      wrapper_html: { class: "mb-4" },
+                input_html: { data: {controller: "flatpickr" } } %>
+  </div>
+  <div class="col">
     <%= f.input :end_time, as: :string, label: "Fin",
+      wrapper_html: { class: "mb-4" },
                 input_html: { data: { controller: "flatpickr" } } %>
+  </div>
+</div>
 
   <%= f.input :slots, label: 'Nombre de places' %>
   <%= f.input :musculation %>
   <%= f.input :cardio%>
   <%= f.input :fitness %>
-  <%= f.input :same_level, label: 'Même niveau ?' %>
 <div data-controller="character-counter">
   <%= f.input :description,
               wrapper_html: { class: "mb-1" },

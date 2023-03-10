@@ -1,13 +1,15 @@
 import { Controller } from "@hotwired/stimulus";
 import flatpickr from "flatpickr";
+import { French } from "flatpickr/dist/l10n/fr.js"
 
 export default class extends Controller {
   connect() {
-    console.log("coucou")
     new flatpickr(this.element, {
+    dateFormat: "Y-m-d",
+    minDate: "today",
+    maxDate: new Date().fp_incr(14),
       enableTime: true,
-      minTime: "00:30",
-      dateFormat: "Y-m-d",
+      "locale": French,
       // more options available on the documentation!
     });
   }

@@ -107,7 +107,7 @@ user = User.new(
   cardio_lvl: rand(1..3),
   fitness_lvl: rand(1..3)
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user4_rbnpdu.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678461209/IMG_8853_jnrerg.jpg")
 user.avatar.attach(io: file, filename: "anan.png", content_type: "image/png")
 user.save!
 

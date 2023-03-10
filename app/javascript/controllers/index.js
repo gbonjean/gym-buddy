@@ -7,6 +7,9 @@ import { application } from "./application"
 import AftereffectController from "./aftereffect_controller"
 application.register("aftereffect", AftereffectController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

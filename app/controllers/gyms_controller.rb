@@ -17,6 +17,6 @@ class GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
-    @events = @gym.events.reject { |event| event.owner == current_user }
+    @events = @gym.events.order(:start_time).reject { |event| event.owner == current_user }
   end
 end

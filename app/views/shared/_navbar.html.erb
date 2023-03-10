@@ -1,24 +1,24 @@
 
 <div data-controller="aftereffect" id="navbar-container">
 
-  <%#= link_to gyms_path do %>
+  <%= link_to gyms_path do %>
     <li class="list-navbar"><ion-icon name="search-outline"></ion-icon></li>
-  <%# end %>
+  <% end %>
 
-  <%#= link_to  events_path do %>
+  <%= link_to  events_path do %>
     <li class="list-navbar"><ion-icon name="calendar-outline"></ion-icon></li>
-  <%# end %>
+  <% end %>
 
-  <%#= link_to  create_path do %>
-    <li  class="list-navbar plus_create"><ion-icon name="add-outline"></ion-icon></li>
-  <%# end %>
+  <%= link_to  new_event_path do %>
+    <li  class="list-navbar"><ion-icon name="add-outline"></ion-icon></li>
+  <% end %>
 
   <%#= link_to  chatrooms_path do %>
     <li class="list-navbar"><ion-icon name="chatbubbles-outline"></ion-icon></li>
   <%# end %>
 
-  <%#= link_to  user_path do %>
+  <%= link_to  profile_path do %>
     <li class="list-navbar"><ion-icon name="person-circle-outline"></ion-icon></li>
-  <%# end %>
+  <% end %>
 
 </div>

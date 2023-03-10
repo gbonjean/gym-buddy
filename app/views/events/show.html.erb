@@ -5,7 +5,7 @@
   <%= render 'shared/gym_card' %>
 
   <%# <h2 class="mt-3 mb-2">Informations</h2> %>
-  <div class="card p-3 border-0">
+  <div class="card p-3 border-0 my-3">
     <div class="row mb-3">
       <h3>Date et heure</h3>
       <p class="mb-0">Le <strong><%= I18n.with_locale("fr") { I18n.l(@event.start_time, format: "%d %B") } %></strong>,
@@ -60,11 +60,8 @@
       </div>
     </div>
     <h3>Description</h3>
-    <%= @event.description %>
-  </div>
-
-  <h2 class="mt-3 mb-2">Participants</h2>
-  <div class="card p-3 mb-3">
+    <p class="mb-3"><%= @event.description %></p>
+    <h3>Participants</h3>
     <div class="d-flex justify-content-between align-items-center">
       <% if @free_slots == 1 %>
         <p class="mb-0"><strong><%= @free_slots %></strong> place disponible</p>
@@ -85,8 +82,8 @@
   <div class="d-grid gap-2 mb-5">
     <% if @is_owner %>
         <% unless @askers.empty? %>
-          <button class="btn btn-primary d-flex align-items-center border-0 rounded" type="button">
-            <%= link_to "Vous avez des demandes de participation", asks_event_path(slots: @free_slots), class: "nav-link text-light" %>
+          <button class="d-flex align-items-center border-0 rounded" type="button">
+            <%= link_to "Vous avez des demandes de participation", asks_event_path(slots: @free_slots), {class: 'btn btn-primary text-white w-100'} %>
           </button>
         <% end %>
         <button class="btn btn-full" type="button">Chat</button>

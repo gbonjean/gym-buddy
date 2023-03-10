@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   def asks
     @free_slots = params[:slots]
     @asks = @event.bookings.reject(&:accepted)
-    redirect_to event_path(@event) if @asks.empty?
+    # redirect_to event_path(@event) if @asks.empty?
   end
 
   def asks_update

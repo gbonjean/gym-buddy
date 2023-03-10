@@ -1,5 +1,4 @@
 class GymsController < ApplicationController
-
   def index
     @gyms = Gym.all
     # The `geocoded` scope filters only flats with coordinates

@@ -2,9 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show show_update asks asks_update]
 
   def index
-    @events = Event.order(:start_time)
-    # @owned = @events.select { |e| e.owner == current_user }
-    # @invited = @events.select { |e| e.users.include? current_user }
+    @events = Event.order(:start_time).select { |e| e.owner == current_user || e.users.include?(current_user) }
   end
 
   def show

@@ -1,13 +1,10 @@
 <%= simple_form_for(@event) do |f| %>
   <%= f.association :gym, label: 'Lieu' %>
-    <%= f.input :start_time, as: :string,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
+
+    <%= f.input :start_time, as: :string, label: "Debut",
                 input_html: { data: { controller: "flatpickr" } } %>
 
-    <%= f.input :end_time, as: :string,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
+    <%= f.input :end_time, as: :string, label: "Fin",
                 input_html: { data: { controller: "flatpickr" } } %>
 
   <%= f.input :slots, label: 'Nombre de places' %>
@@ -15,7 +12,14 @@
   <%= f.input :cardio%>
   <%= f.input :fitness %>
   <%= f.input :same_level, label: 'Même niveau ?' %>
-  <%= f.input :description %>
+<div data-controller="character-counter">
+  <%= f.input :description,
+              wrapper_html: { class: "mb-1" },
+              input_html: { data: { character_counter_target: "input" } },
+              label_html: { class: "form-label text-secondary fw-bold" } %>
 
+  <p>Votre description fait <strong data-character-counter-target="counter"></strong> caractères.</p>
+</div>
   <%= f.submit %>
 <% end %>
+<div class="mb-custom">

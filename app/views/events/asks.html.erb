@@ -1,36 +1,63 @@
 <div class="container">
-  <h1>Demandes</h1>
+  <h1 class="mt-3">Demandes reçues</h1>
   <% if @free_slots.to_i == 0 %>
     <h1>Plus de place !</h1>
   <% else %>
     <% @asks.each do |ask| %>
-      <div class="card">
-        <div class="d-flex justify-content-between">
+      <div class="card p-3 border-0 my-3">
+        <div class="d-flex justify-content-between mb-3">
           <div>
-            <h2>Demande de</h2>
-            <div class="d-flex">
-              <%= cl_image_tag ask.user.avatar.key, height: 50, width: 50 %>
-              <h5><%= ask.user.nickname %></h5>
+            <h3 class="mb-3">Demande de</h3>
+            <div class="d-flex align-items-center">
+              <%= cl_image_tag ask.user.avatar.key, height: 50, width: 50, class: "rounded-circle me-2" %>
+              <h5 class="mb-0"><%= ask.user.nickname %></h5>
             </div>
           </div>
           <div>
-            <h2>Niveau</h2>
-            <div class="d-flex justify-content-around">
+            <h3 class="mb-3">Niveau</h3>
+            <div class="d-flex justify-content-start w-50">
               <% if ask.user.musculation_lvl.positive? %>
-                <p>Musculation : <%= ask.user.musculation_lvl %></p>
+                <div class="p-2 border border-1 border-pumpkin rounded me-2">
+                  <h4 class="mb-1">Musculation</h4>
+                  <div class="stars">
+                    <ul class="list-group list-group-horizontal pt-0">
+                      <% ask.user.musculation_lvl.times do %>
+                        <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
               <% end %>
               <% if ask.user.cardio_lvl.positive? %>
-                <p>Cardio : <%= ask.user.cardio_lvl %></p>
+                <div class="p-2 border border-1 border-pumpkin rounded me-2">
+                  <h4 class="mb-1">Cardio</h4>
+                  <div class="stars">
+                    <ul class="list-group list-group-horizontal pt-0">
+                      <% ask.user.cardio_lvl.times do %>
+                        <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
               <% end %>
               <% if ask.user.fitness_lvl.positive? %>
-                <p>Fitness : <%= ask.user.fitness_lvl %></p>
+                <div class="p-2 border border-1 border-pumpkin rounded">
+                  <h4 class="mb-1">Fitness</h4>
+                  <div class="stars">
+                    <ul class="list-group list-group-horizontal pt-0">
+                      <% ask.user.fitness_lvl.times do %>
+                        <li class="list-group-item p-0 border-0 text-pumpkin star-icon"><ion-icon name="star"></ion-icon></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
               <% end %>
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-around">
-          <%= button_to 'Accepter', { controller: "events", action: "asks_update", slots: @free_slots, booking_id: ask.id, accepted: true } %>
-          <%= button_to 'Refuser', { controller: "events", action: "asks_update", slots: @free_slots, booking_id: ask.id } %>
+        <div class="d-flex ask-btn-block">
+          <%= button_to 'Accepter', { controller: "events", action: "asks_update", slots: @free_slots, booking_id: ask.id, accepted: true }, { class: 'btn btn-success text-white w-100 me-1'} %>
+          <%= button_to 'Refuser', { controller: "events", action: "asks_update", slots: @free_slots, booking_id: ask.id }, { class: 'btn btn-danger text-white w-100 ms-1'} %>
         </div>
       </div>
     <% end %>

@@ -10,8 +10,9 @@
           <div class="d-flex align-items-center">
             <%= cl_image_tag event.owner.avatar.key, height: 50, width: 50, class: "rounded-circle me-3" %>
             <div>
-              <h3 class="mt-1 mb-0">ÉVÈNEMENT DE <%= event.owner.nickname %></h3>
-              <p class="mb-0"><%= "#{event.start_time.strftime('%d %B %Y')} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}" %></p>
+              <h3 class="mt-1 mb-0"><%= event.owner.nickname %></h3>
+              <p class="mb-0">Le <strong><%= I18n.with_locale("fr") { I18n.l(event.start_time, format: "%d %B") } %></strong>,
+                              de <%= event.start_time.strftime('%Hh%M') %> à <%= event.end_time.strftime('%Hh%M') %></p>
             </div>
           </div>
         </div>
@@ -24,7 +25,7 @@
             <% else %>
               <p class="mb-1"><strong><%= free_slots %></strong> places disponibles</p>
             <% end %>
-            <%= cl_image_tag event.owner.avatar.key, height: 30, width: 30, class: "rounded-circle me-1" %>
+            <%# <%= cl_image_tag event.owner.avatar.key, height: 30, width: 30, class: "rounded-circle me-1" %>
             <% participants.each do |participant| %>
               <%= cl_image_tag participant.avatar.key, height: 30, width: 30, class: "rounded-circle me-1" %>
             <% end %>

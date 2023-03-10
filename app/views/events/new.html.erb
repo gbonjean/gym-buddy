@@ -1,11 +1,11 @@
 <%= simple_form_for(@event) do |f| %>
   <%= f.association :gym, label: 'Lieu' %>
-    <%= f.input :start_at, as: :string,
+    <%= f.input :start_time, as: :string,
                 wrapper_html: { class: "mb-4" },
                 label_html: { class: "form-label text-secondary fw-bold" },
                 input_html: { data: { controller: "flatpickr" } } %>
 
-    <%= f.input :end_at, as: :string,
+    <%= f.input :end_time, as: :string,
                 wrapper_html: { class: "mb-4" },
                 label_html: { class: "form-label text-secondary fw-bold" },
                 input_html: { data: { controller: "flatpickr" } } %>

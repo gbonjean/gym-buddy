@@ -19,7 +19,9 @@ export default class extends Controller {
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
-  resetForm(event) {
+  reset(event) {
+    event.preventDefault()
+    console.log("reset");
     event.target.reset()
   }
 

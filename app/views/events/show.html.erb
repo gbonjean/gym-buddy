@@ -86,11 +86,17 @@
             <%= link_to "Vous avez des demandes de participation", asks_event_path(slots: @free_slots), {class: 'btn btn-primary text-white w-100'} %>
           </button>
         <% end %>
-        <button class="btn btn-full" type="button">Chat</button>
+        <% unless @participants.empty? %>
+          <button class="d-flex align-items-center border-0 rounded" type="button">
+            <%= link_to "Chat", chatroom_path(@event.chatroom), {class: 'btn btn-success text-white w-100'} %>
+          </button>
+        <% end %>
         <%= button_to "Annuler l'évènement", { controller: "events", action: "show_update", delete: true}, {class: 'btn btn-danger text-white w-100'} %>
     <% else %>
         <% if @participants.include? current_user %>
-          <button class="btn btn-outline-primary" type="button">Chat</button>
+          <button class="d-flex align-items-center border-0 rounded" type="button">
+            <%= link_to "Chat", chatroom_path(@event.chatroom), {class: 'btn btn-success text-white w-100'} %>
+          </button>
           <%= button_to 'Annuler ma participation', {controller: "events", action: "show_update", cancel: true}, {class: 'btn btn-danger text-white w-100'}  %>
         <% elsif @askers.include? current_user %>
           <button class="btn btn-outline-primary" type="button" disabled>En attente de confirmation</button>

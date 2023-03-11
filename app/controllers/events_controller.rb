@@ -54,6 +54,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.owner = current_user
     if @event.save
+      create_chatroom(@event)
       redirect_to events_path
     else
       render :new, status: :unprocessable_entity
@@ -70,4 +71,14 @@ class EventsController < ApplicationController
     params.require(:event)
           .permit(:gym_id, :start_time, :end_time, :slots, :musculation, :cardio, :fitness, :same_level, :description)
   end
+
+  def create_chatroom(event)
+    Chatroom.create!(
+      event: event,
+      name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
+    )
+  end
 end
+
+# <%= I18n.with_locale("fr") { I18n.l(@event.start_time, format: "%d %B") } %></strong>,
+#                               de <%= @event.start_time.strftime('%Hh%M') %> à <%= @event.end_time.strftime('%Hh%M')

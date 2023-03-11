@@ -1,4 +1,29 @@
 <div class="container">
-<h1>Chatroom/show !</h1>
-
+  <div class="card p-3 border-0 mb-3">
+    <h3><%= @chatroom.name %><h3>
+    <div class="d-flex align-items-center">
+      <%= image_tag @chatroom.event.gym.logo, alt: "logo", width: 30, height: 30, class: "rounded-circle me-2" %>
+      <p class="mb-0"><%= @chatroom.event.gym.name %></p>
+    </div>
+  </div>
 </div>
+
+<div class="container chatroom"
+    data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+>
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render 'messages/message', message: message %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= simple_form_for [@chatroom, @message],
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+%>
+  <%= f.input :content, label: false, placeholder: "Votre message", wrapper_html: {class: "flex-grow-1"} %>
+  <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
+<% end %>
+<div class="mb-custom">

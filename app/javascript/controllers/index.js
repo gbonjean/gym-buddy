@@ -7,6 +7,9 @@ import { application } from "./application"
 import AftereffectController from "./aftereffect_controller"
 application.register("aftereffect", AftereffectController)
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 

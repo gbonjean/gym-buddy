@@ -114,7 +114,7 @@ user.save!
 puts "OK!"
 
 print "Create Events..."
-30.times do
+10.times do
   day = Date.today.day + rand(1..10)
   hour = rand(6..20)
   mins = [0, 30].sample
@@ -131,5 +131,10 @@ print "Create Events..."
   event.musculation = true if !event.musculation && !event.cardio && !event.fitness
   event.end_time = event.start_time + [1800, 3600].sample
   event.save!
+
+  Chatroom.create!(
+    event: event,
+    name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
+  )
 end
 puts "OK!"

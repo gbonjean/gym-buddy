@@ -3,4 +3,5 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import CharacterCounter from "stimulus-character-counter"
 Stimulus.register("character-counter", CharacterCounter)
+
 import "bootstrap"

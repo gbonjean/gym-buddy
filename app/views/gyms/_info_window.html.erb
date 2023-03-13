@@ -1,9 +1,10 @@
 <div class="map-bubble-container">
   <div class="map-bubble_head">
+    <%= image_tag gym.logo, alt: "logo", width: 50, height: 50, class: "rounded-circle border border-2 border-white mb-2" %>
     <h2><%= gym.name %></h2>
-    <p><%= gym.address %></p>
+    <p class="mb-2"><%= gym.address %></p>
   </div>
   <div class="details_btn_card">
-    <p><%= link_to (I18n.t 'events.see_events'),  gym_path(gym) %></p>
+    <%= link_to (I18n.t 'events.see_events'),  gym_path(gym) %>
   </div>
 </div>

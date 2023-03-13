@@ -12,7 +12,6 @@
         <div class="d-flex justify-content-between align-items-baseline">
           <h2 class="mb-3"><%= I18n.with_locale(current_user.locale) { I18n.l(event.start_time, format: "%d %B") } %></h2>
           <h3 class="mb-3"><%= "#{event.start_time.strftime('%Hh%M')} - #{event.end_time.strftime('%Hh%M')}" %></h3>
-          <p><%=  %></p>
         </div>
         <div class="d-flex justify-content-between align-items-end">
           <% participants = event.bookings.select(&:accepted).map(&:user) %>

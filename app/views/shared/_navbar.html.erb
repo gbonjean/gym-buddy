@@ -2,29 +2,91 @@
 <div data-controller="aftereffect" id="navbar-container">
 
   <%= link_to gyms_path do %>
-    <li class="list-navbar"><ion-icon name="search-outline"><a href="gyms_path"></a></ion-icon></li>
+  <% if current_page?(gyms_path) %>
+      <li class="list-navbar active">
+        <ion-icon name="search-outline">
+          <a href="gyms_path"></a>
+        </ion-icon>
+      </li>
+  <% else %>
+      <li class="list-navbar">
+      <ion-icon name="search-outline">
+      <a href="gyms_path"></a>
+      </ion-icon>
+      </li>
+  <% end %>
+
   <% end %>
 
   <%= link_to  events_path do %>
-    <li class="list-navbar">
-      <ion-icon name="calendar-outline"><a href="events_path"></a></ion-icon>
+  <% if current_page?(events_path)%>
+    <li class="list-navbar active">
+    <ion-icon name="calendar-outline">
+    <a href="events_path"></a>
+    </ion-icon>
       <%= @index_count if @index_count.positive? %>
     </li>
+    <% else %>
+     <li class="list-navbar">
+     <ion-icon name="calendar-outline">
+     <a href="events_path"></a>
+     </ion-icon>
+      <%= @index_count if @index_count.positive? %>
+     </li>
+    <% end %>
+
   <% end %>
 
   <%= link_to  new_event_path do %>
-    <li  class="list-navbar plus_create"><ion-icon name="add-outline"><a href="new_event_path"></a></ion-icon></li>
+    <% if current_page?(new_event_path)%>
+    <li  class="list-navbar plus_create" id="active">
+    <ion-icon name="add-outline">
+    <a href="new_event_path"></a>
+    </ion-icon>
+    </li>
+      <% else %>
+    <li  class="list-navbar plus_create">
+    <ion-icon name="add-outline">
+    <a href="new_event_path"></a>
+    </ion-icon>
+    </li>
+    <% end %>
   <% end %>
 
   <%= link_to  chatrooms_path do %>
-    <li class="list-navbar">
-      <ion-icon name="chatbubbles-outline"><a href="chatrooms_path"></a></ion-icon>
-      <%= @messages_notifications.count if @messages_notifications.count.positive? %>
+      <% if current_page?(chatrooms_path)%>
+    <li class="list-navbar active">
+    <ion-icon name="chatbubbles-outline">
+    <a href="chatrooms_path"></a>
+    </ion-icon>
+    <%= @messages_notifications.count if @messages_notifications.count.positive? %>
     </li>
+      <% else %>
+    <li class="list-navbar">
+    <ion-icon name="chatbubbles-outline">
+    <a href="chatrooms_path"></a>
+    </ion-icon>
+    <%= @messages_notifications.count if @messages_notifications.count.positive? %>
+    </li>
+  <% end %>
  <% end %>
 
+
   <%= link_to  profile_path do %>
-    <li class="list-navbar"><ion-icon name="person-circle-outline"><a href="profile_path"></a></ion-icon></li>
+      <% if current_page?(profile_path)%>
+    <li class="list-navbar active">
+    <ion-icon name="person-circle-outline">
+    <a href="profile_path"></a>
+    </ion-icon>
+    </li>
+      <% else %>
+    <li class="list-navbar">
+    <ion-icon name="person-circle-outline">
+    <a href="profile_path"></a>
+    </ion-icon>
+    </li>
   <% end %>
+ <% end %>
+
 
 </div>

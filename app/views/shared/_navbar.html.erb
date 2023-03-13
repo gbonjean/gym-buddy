@@ -6,7 +6,10 @@
   <% end %>
 
   <%= link_to  events_path do %>
-    <li class="list-navbar"><ion-icon name="calendar-outline"><a href="events_path"></a></ion-icon></li>
+    <li class="list-navbar">
+      <ion-icon name="calendar-outline"><a href="events_path"></a></ion-icon>
+      <%= @index_count if @index_count.positive? %>
+    </li>
   <% end %>
 
   <%= link_to  new_event_path do %>
@@ -14,7 +17,10 @@
   <% end %>
 
   <%= link_to  chatrooms_path do %>
-    <li class="list-navbar"><ion-icon name="chatbubbles-outline"><a href="chatrooms_path"></a></ion-icon></li>
+    <li class="list-navbar">
+      <ion-icon name="chatbubbles-outline"><a href="chatrooms_path"></a></ion-icon>
+      <%= @messages_notifications.count if @messages_notifications.count.positive? %>
+    </li>
  <% end %>
 
   <%= link_to  profile_path do %>

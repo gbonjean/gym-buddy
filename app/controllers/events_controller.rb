@@ -3,6 +3,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.order(:start_time).select { |e| e.owner == current_user || e.users.include?(current_user) }
+    @answers_notifications.each(&:mark_as_read!)
+    @asks_notification.each(&:mark_as_read!)
   end
 
   def show
@@ -16,6 +18,7 @@ class EventsController < ApplicationController
   def show_update
     if params[:ask]
       Booking.create(user: current_user, event: @event)
+      notify_ask(@event.owner, @event.id)
     elsif params[:cancel]
       booking = Booking.find_by(user: current_user)
       booking.destroy
@@ -38,8 +41,10 @@ class EventsController < ApplicationController
     if params[:accepted]
       @booking.accepted = true
       @booking.save!
+      notify_inscription(@booking.user, true)
       @free_slots -= 1
     else
+      notify_inscription(@booking.user, false)
       @booking.destroy
     end
     @event.bookings.reject(&:accepted).each(&:destroy) if @free_slots.zero?
@@ -77,6 +82,19 @@ class EventsController < ApplicationController
       event: event,
       name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
     )
+  end
+
+  def notify_ask(user, event)
+    MessageNotification.with(ask: event).deliver_later(user)
+  end
+
+  def notify_inscription(user, accepted)
+    answer = if accepted
+               "Vous avez rejoint l'évènement de #{current_user.nickname} !"
+             else
+               "#{current_user.nickname} a refusé votre demande !"
+             end
+    MessageNotification.with(answer: answer).deliver_later(user)
   end
 end
 

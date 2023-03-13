@@ -1,7 +1,10 @@
 <div class="container">
   <% @chatrooms.each do |chatroom| %>
     <div class="card p-3 border-0 mb-3">
-      <h3><%= chatroom.name %></h3>
+      <div class="d-flex justify-content-between align-items-center">
+        <h3><%= chatroom.name %></h3>
+        <h1><%= @counts[chatroom.id] if @counts[chatroom.id].present? %></h1>
+      </div>
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
           <%= cl_image_tag chatroom.event.owner.avatar.key, height: 40, width: 40, class: "rounded-circle me-1" %>

@@ -59,16 +59,15 @@
     <ion-icon name="chatbubbles-outline">
     <a href="chatrooms_path"></a>
     </ion-icon>
-    <%= @messages_notifications.count if @messages_notifications.count.positive? %>
     </li>
       <% else %>
     <li class="list-navbar">
     <ion-icon name="chatbubbles-outline">
     <a href="chatrooms_path"></a>
     </ion-icon>
-    <%= @messages_notifications.count if @messages_notifications.count.positive? %>
     </li>
   <% end %>
+  <%= @messages_notifications.count if @messages_notifications.count.positive? %>
  <% end %>
 
 

@@ -4,10 +4,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.order(:start_time).select { |e| e.owner == current_user || e.users.include?(current_user) }
     @answers_notifications.each(&:mark_as_read!)
-    @asks_notification.each(&:mark_as_read!)
+    @counts = @asks_notifications.map(&:params).map { |p| p[:ask] }.tally
+
   end
 
   def show
+    @asks_notifications.each { |n| n.destroy if n.params[:ask] == @event.id }
     @gym = @event.gym
     @is_owner = @event.owner == current_user
     @participants = @event.bookings.select(&:accepted).map(&:user)

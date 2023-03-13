@@ -1,39 +1,39 @@
 <div class="container">
 
-  <h1 class="mt-3 mb-3">Créer un nouvel évènement</h1>
+  <h1 class="mt-3 mb-3"><%= I18n.t 'events.new_event' %></h1>
 
   <%= simple_form_for(@event) do |f| %>
-  <%= f.association :gym, label: 'Lieu', label_html: { class: "form-label fw-bold custom-label-form" } %>
+  <%= f.association :gym, label: (I18n.t 'events.place'), label_html: { class: "form-label fw-bold custom-label-form" } %>
 
   <div class="row">
     <div class="col">
-      <%= f.input :start_time, as: :string, label: "Début",
+      <%= f.input :start_time, as: :string, label: (I18n.t 'events.start'),
         wrapper_html: { class: "mb-4" },
                   input_html: { data: {controller: "flatpickr" } }, label_html: { class: "form-label fw-bold custom-label-form" } %>
     </div>
     <div class="col">
-      <%= f.input :end_time, as: :string, label: "Fin",
+      <%= f.input :end_time, as: :string, label: (I18n.t 'events.end'),
         wrapper_html: { class: "mb-4" },
                   input_html: { data: { controller: "flatpickr" } }, label_html: { class: "form-label fw-bold custom-label-form" } %>
     </div>
   </div>
 
-    <%= f.input :slots, label: 'Nombre de places', collection: [ "1", "2", "3"], label_html: { class: "form-label fw-bold custom-label-form" } %>
-    <p class="custom-label-form mb-3">Disciplines</p>
+    <%= f.input :slots, label: (I18n.t 'events.slots'), collection: [ "1", "2", "3"], label_html: { class: "form-label fw-bold custom-label-form" } %>
+    <p class="custom-label-form mb-3"><%= I18n.t 'disciplines.disciplines' %></p>
     <div class="form-check ps-0 mb-3">
-      <%= f.input :musculation, input_html: { class: "form-check-input" } %>
-      <%= f.input :cardio, input_html: { class: "form-check-input" } %>
-      <%= f.input :fitness, input_html: { class: "form-check-input" } %>
+      <%= f.input :musculation, label: (I18n.t 'disciplines.bodybuilding'), input_html: { class: "form-check-input" } %>
+      <%= f.input :cardio, label: (I18n.t 'disciplines.cardio'), input_html: { class: "form-check-input" } %>
+      <%= f.input :fitness, label: (I18n.t 'disciplines.fitness'), input_html: { class: "form-check-input" } %>
     </div>
   <div data-controller="character-counter">
-    <%= f.input :description,
+    <%= f.input :description, label: (I18n.t 'events.description'),
                 wrapper_html: { class: "mb-1" },
                 input_html: { data: { character_counter_target: "input" } },
                 label_html: { class: "form-label fw-bold custom-label-form" } %>
 
-    <p>Votre description fait <strong data-character-counter-target="counter"></strong> caractères.</p>
+    <p><%= I18n.t 'events.character_count_before' %> <strong data-character-counter-target="counter"></strong> caractères.</p>
   </div>
-    <%= f.submit :class => 'btn btn-full w-100' %>
+    <%= f.submit (I18n.t 'events.create_event'), :class => 'btn btn-full w-100' %>
   <% end %>
   <div class="mb-custom">
 </div>

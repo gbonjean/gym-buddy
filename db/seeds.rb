@@ -79,7 +79,8 @@ user = User.new(
   address: '20 rue Haxo Marseille',
   musculation_lvl: rand(1..3),
   cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3)
+  fitness_lvl: rand(1..3),
+  locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user3_ftmicb.jpg")
 user.avatar.attach(io: file, filename: "paulin.png", content_type: "image/png")
@@ -92,7 +93,8 @@ user = User.new(
   address: '20 rue Haxo Marseille',
   musculation_lvl: rand(1..3),
   cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3)
+  fitness_lvl: rand(1..3),
+  locale: "en"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user2_wuxonh.jpg")
 user.avatar.attach(io: file, filename: "jerome.png", content_type: "image/png")
@@ -105,7 +107,8 @@ user = User.new(
   address: '20 rue Haxo Marseille',
   musculation_lvl: 3,
   cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3)
+  fitness_lvl: rand(1..3),
+  locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678461209/IMG_8853_jnrerg.jpg")
 user.avatar.attach(io: file, filename: "anan.png", content_type: "image/png")

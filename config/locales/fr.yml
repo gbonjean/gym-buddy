@@ -9,6 +9,15 @@ fr:
             dépendant(e) existe
           has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
             dépendants existent
+  asks:
+    ask: "Demander à participer"
+    accept: "Accepter"
+    decline: "Refuser"
+    cancel: "Annuler ma demande"
+    cancel_attendee: "Annuler ma participation"
+    waiting: En attente de confirmation
+  chats:
+    chat: "Chat"
   date:
     abbr_day_names:
     - dim
@@ -110,6 +119,17 @@ fr:
       day: Jour
       month: Mois
       year: Année
+  disciplines:
+    disciplines: "Disciplines"
+    bodybuilding: "Musculation"
+    cardio: "Cardio"
+    fitness: "Fitness"
+    level: "Niveau"
+    levels:
+      beginner: "Débutant"
+      intermediate: "Confirmé"
+      expert: "Expert"
+      not_given: "Vous n'avez pas encore renseigné de niveau pour cette discipline."
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -149,6 +169,37 @@ fr:
       header:
         one: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreur'
         other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  events:
+    my_events: "Mes évènements"
+    no_events: "Vous n'avez aucun évènement pour le moment."
+    see_event: "Voir l'évènement"
+    see_events: "Voir les évènements"
+    no_slots_left: "Il n'y a plus de place disponible pour cet évènement."
+    back_to_event: "Retourner à l'évènement"
+    received_requests: "Demandes reçues"
+    request_from: "Demande de"
+    new_event: "Création d'un nouvel évènement"
+    place: "Lieu"
+    start: "Début"
+    end: "Fin"
+    slots: "Nombre de places"
+    description: "Description"
+    create_event: "Créer l'évènement"
+    character_count_before: "Votre description fait"
+    character_count_after: "caractères."
+    details: "Détails de l'évènement"
+    datetime: "Date et heure"
+    from: "Le"
+    to: "à"
+    creator: "Créateur"
+    attendees: "Participants"
+    free_slot: "place disponible"
+    free_slots: "places disponibles"
+    got_asks: "Vous avez des demandes de participation"
+    cancel: "Annuler l'évènement"
+  gyms:
+    events: "Évènements de la salle"
+    no_events: "Il n'y a actuellement aucun évènement pour cette salle."
   helpers:
     select:
       prompt: Veuillez sélectionner
@@ -207,6 +258,16 @@ fr:
     precision:
       format:
         delimiter: ''
+  profiles:
+    profile: "Mon profil"
+    nickname: "Pseudo"
+    email: "E-mail"
+    address: "Adresse"
+    disconnect: "Déconnexion"
+    language: "Langue"
+    languages:
+      french: "🇫🇷 Français"
+      english: "🇬🇧 Anglais"
   support:
     array:
       last_word_connector: " et "

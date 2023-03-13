@@ -80,7 +80,7 @@ class EventsController < ApplicationController
   def create_chatroom(event)
     Chatroom.create!(
       event: event,
-      name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
+      name: "#{I18n.with_locale(current_user.locale) { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
     )
   end
 

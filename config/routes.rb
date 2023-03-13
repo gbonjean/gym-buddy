@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
 
   get :profile, to: "profiles#show"
+  post :profile, to: "profiles#locale_update"
 end

@@ -127,6 +127,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_135219) do
     t.integer "musculation_lvl"
     t.integer "cardio_lvl"
     t.integer "fitness_lvl"
+    t.string "locale", default: "fr"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

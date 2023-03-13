@@ -5,9 +5,9 @@ import { French } from "flatpickr/dist/l10n/fr.js"
 export default class extends Controller {
   connect() {
     new flatpickr(this.element, {
-      dateFormat: "Y-m-d",
-      minDate: "today",
       enableTime: true,
+      dateFormat: "Y-m-d H:i",
+      minDate: "today",
       "locale": French,
       // more options available on the documentation!
     });

@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :events
   has_many :messages
 
+  has_many :notifications, as: :recipient, dependent: :destroy
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end

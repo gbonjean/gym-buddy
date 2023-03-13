@@ -5,7 +5,6 @@ class EventsController < ApplicationController
     @events = Event.order(:start_time).select { |e| e.owner == current_user || e.users.include?(current_user) }
     @answers_notifications.each(&:mark_as_read!)
     @counts = @asks_notifications.map(&:params).map { |p| p[:ask] }.tally
-
   end
 
   def show

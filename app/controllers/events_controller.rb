@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.order(:start_time).select { |e| e.owner == current_user || e.users.include?(current_user) }
     @answers_notifications.each(&:mark_as_read!)
-    @asks_notification.each(&:mark_as_read!)
+    @asks_notifications.each(&:mark_as_read!)
   end
 
   def show

@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module GymBuddy
   class Application < Rails::Application
+
     config.generators do |generate|
       generate.assets false
       generate.helper false
@@ -15,6 +16,10 @@ module GymBuddy
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    I18n.available_locales = [:fr, :en]
+    config.i18n.default_locale = :fr
 
     # Configuration for the application, engines, and railties goes here.
     #

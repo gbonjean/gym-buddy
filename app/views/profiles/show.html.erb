@@ -1,92 +1,111 @@
 <div class="container">
-  <h1 class="mt-3">Mon Profil</h1>
+  <h1 class="mt-3"><%= I18n.t 'profiles.profile' %></h1>
   <div class="card w-100 my-3">
     <%= cl_image_tag @user.avatar.key, height: 300, width: 150, class: "card-img-top me-3 of-cover" %>
     <div class="card-body">
       <div class="d-flex mb-3">
         <div class="w-50">
-          <h3 class="card-title">Pseudo</h3>
+          <h3 class="card-title"><%= I18n.t 'profiles.nickname' %></h3>
           <p class="mb-0"><%= @user.nickname %></p>
         </div>
         <div class="w-50">
-          <h3 class="card-title">E-mail</h3>
+          <h3 class="card-title"><%= I18n.t 'profiles.email' %></h3>
           <p class="mb-0"><%= @user.email %></p>
         </div>
       </div>
-      <div class="mb-3">
-        <h3 class="card-title">Adresse</h3>
-        <p class="mb-0"><%= @user.address %></p>
+      <div class="d-flex mb-3">
+        <div class="w-50">
+          <h3 class="card-title"><%= I18n.t 'profiles.address' %></h3>
+          <p class="mb-0"><%= @user.address %></p>
+        </div>
+        <div class="w-50">
+          <h3 class="card-title"><%= I18n.t 'profiles.language' %></h3>
+          <div class="dropdown">
+            <button class="btn btn-full dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= I18n.t 'profiles.languages.french' if @user.locale == "fr" %><%= I18n.t 'profiles.languages.english' if @user.locale == "en" %>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">
+              <% if @user.locale == "en" %>
+              <%= button_to (I18n.t 'profiles.languages.french'), { controller: "profiles", action: "locale_update" }, { class: 'language-selector'} %>
+              <% else %>
+              <%= button_to (I18n.t 'profiles.languages.english'), { controller: "profiles", action: "locale_update" }, { class: 'language-selector'} %>
+              <% end %>
+              </a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div>
-        <h3 class="card-title mb-3">Niveaux</h3>
+        <h3 class="card-title mb-3"><%= I18n.t 'disciplines.level' %></h3>
         <div>
           <div class="mb-3">
-            <h4 class="card-title">Musculation</h4>
+            <h4 class="card-title"><%= I18n.t 'disciplines.bodybuilding' %></h4>
             <% if @user.musculation_lvl.positive? %>
               <% case @user.musculation_lvl %>
               <% when 1 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 33%">Débutant</div>
+                  <div class="progress-bar" style="width: 33%"><%= I18n.t 'disciplines.levels.beginner' %></div>
                 </div>
               <% when 2 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 66%">Confirmé</div>
+                  <div class="progress-bar" style="width: 66%"><%= I18n.t 'disciplines.levels.intermediate' %></div>
                 </div>
               <% when 3 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 100%">Expert</div>
+                  <div class="progress-bar" style="width: 100%"><%= I18n.t 'disciplines.levels.expert' %></div>
                 </div>
               <% end %>
             <% else %>
-              <p class="mb-0">Vous n'avez pas renseigné de niveau pour cette discipline.</p>
+              <p class="mb-0"><%= I18n.t 'disciplines.levels.not_given' %></p>
             <% end %>
           </div>
           <div class="mb-3">
-            <h4 class="card-title">Cardio</h4>
+            <h4 class="card-title"><%= I18n.t 'disciplines.cardio' %></h4>
             <% if @user.cardio_lvl.positive? %>
               <% case @user.cardio_lvl %>
               <% when 1 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 33%">Débutant</div>
+                  <div class="progress-bar" style="width: 33%"><%= I18n.t 'disciplines.levels.beginner' %></div>
                 </div>
               <% when 2 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 66%">Confirmé</div>
+                  <div class="progress-bar" style="width: 66%"><%= I18n.t 'disciplines.levels.intermediate' %></div>
                 </div>
               <% when 3 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 100%">Expert</div>
+                  <div class="progress-bar" style="width: 100%"><%= I18n.t 'disciplines.levels.expert' %></div>
                 </div>
               <% end %>
             <% else %>
-              <p class="mb-0">Vous n'avez pas renseigné de niveau pour cette discipline.</p>
+              <p class="mb-0"><%= I18n.t 'disciplines.levels.not_given' %></p>
             <% end %>
           </div>
           <div class="mb-0">
-            <h4 class="card-title">Fitness</h4>
+            <h4 class="card-title"><%= I18n.t 'disciplines.fitness' %></h4>
             <% if @user.fitness_lvl.positive? %>
               <% case @user.fitness_lvl %>
               <% when 1 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 33%">Débutant</div>
+                  <div class="progress-bar" style="width: 33%"><%= I18n.t 'disciplines.levels.beginner' %></div>
                 </div>
               <% when 2 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 66%">Confirmé</div>
+                  <div class="progress-bar" style="width: 66%"><%= I18n.t 'disciplines.levels.intermediate' %></div>
                 </div>
               <% when 3 %>
                 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 100%">Expert</div>
+                  <div class="progress-bar" style="width: 100%"><%= I18n.t 'disciplines.levels.expert' %></div>
                 </div>
               <% end %>
             <% else %>
-              <p class="mb-0">Vous n'avez pas renseigné de niveau pour cette discipline.</p>
+              <p class="mb-0"><%= I18n.t 'disciplines.levels.not_given' %></p>
             <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-danger w-100 text-white" %>
+  <%= link_to (I18n.t 'profiles.disconnect'), destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-danger w-100 text-white" %>
   <div class="mb-custom"></div>
 </div>

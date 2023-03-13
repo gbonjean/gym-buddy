@@ -30,4 +30,283 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validation a échoué : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+            dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+            dépendants existent
+  asks:
+    ask: "Ask to join the event"
+    accept: "Accept"
+    decline: "Decline"
+    cancel: "Cancel my request"
+    cancel_attendee: "Cancel my registration"
+    waiting: "Waiting for confirmation"
+  chats:
+    chat: "Chat"
+  date:
+    abbr_day_names:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    abbr_month_names:
+    -
+    - jan.
+    - feb.
+    - mar.
+    - apr.
+    - may
+    - jun.
+    - jul.
+    - aug.
+    - sep.
+    - oct.
+    - nov.
+    - dec.
+    day_names:
+    - sunday
+    - monday
+    - tuesday
+    - wednesday
+    - thursday
+    - friday
+    - saturday
+    formats:
+      default: "%m/%d/%Y"
+      long: "%-d %B %Y"
+      short: "%-d %b"
+    month_names:
+    -
+    - january
+    - february
+    - march
+    - april
+    - may
+    - june
+    - july
+    - august
+    - september
+    - october
+    - november
+    - december
+    order:
+    - :jour
+    - :mois
+    - :année
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about an hour
+        other: about %{count} hours
+      about_x_months:
+        one: about a month
+        other: about %{count} months
+      about_x_years:
+        one: about a year
+        other: about %{count} years
+      almost_x_years:
+        one: almost a year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_seconds:
+        zero: less than a second
+        one: less than a second
+        other: less than %{count} seconds
+      less_than_x_minutes:
+        zero: less than a minute
+        one: less than a minute
+        other: less than %{count} minutes
+      over_x_years:
+        one: over a year
+        other: over %{count} years
+      x_seconds:
+        one: "%{count} second"
+        other: "%{count} seconds"
+      x_minutes:
+        one: "%{count} minute"
+        other: "%{count} minutes"
+      x_days:
+        one: "%{count} day"
+        other: "%{count} days"
+      x_months:
+        one: "%{count} month"
+        other: "%{count} months"
+      x_years:
+        one: "%{count} year"
+        other: "%{count} years"
+    prompts:
+      second: Second
+      minute: Minut
+      hour: Hour
+      day: Day
+      month: Month
+      year: Year
+  disciplines:
+    disciplines: "Disciplines"
+    bodybuilding: "Bodybuilding"
+    cardio: "Cardio"
+    fitness: "Fitness"
+    level: "Level"
+    levels:
+      beginner: "Beginner"
+      intermediate: "Intermediate"
+      expert: "Expert"
+      not_given: "You did not already give your level for this discipline."
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: cannot be blank
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      in: doit être dans l'intervalle %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Validation échouée : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      required: doit exister
+      taken: est déjà utilisé(e)
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  events:
+    my_events: "My events"
+    no_events: "You don't have any event at the moment."
+    see_event: "See the event"
+    see_events: "See the events"
+    no_slots_left: "There's no available slot for this event."
+    back_to_event: "Back to the event"
+    received_requests: "Received requests"
+    request_from: "Request from"
+    new_event: "New event"
+    place: "Gym"
+    start: "Start"
+    end: "End"
+    slots: "Slots available"
+    description: "Description"
+    create_event: "Create event"
+    character_count_before: "Your description has"
+    character_count_after: "characters."
+    details: "Event details"
+    datetime: "Date & hour"
+    from: "from"
+    to: "to"
+    creator: "Creator"
+    attendees: "Attendees"
+    free_slot: "free slot"
+    free_slots: "free slots"
+    got_asks: "See the attendees requests"
+    cancel: "Cancel event"
+  gyms:
+    events: "Gym events"
+    no_events: "There's no event for this gym at the moment."
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer un(e) %{model}
+      submit: Enregistrer ce(tte) %{model}
+      update: Modifier ce(tte) %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      round_mode: default
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          eb: Eo
+          gb: Go
+          kb: ko
+          mb: Mo
+          pb: Po
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  profiles:
+    profile: "My profile"
+    nickname: "Nickname"
+    email: "Email"
+    address: "Address"
+    disconnect: "Log out"
+    language: "Language"
+    languages:
+      french: "🇫🇷 French"
+      english: "🇬🇧 English"
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      short: "%d %b %Hh%M"
+    pm: pm

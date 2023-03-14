@@ -3,7 +3,13 @@
     <div class="card p-3 border-0 mb-3">
       <div class="d-flex justify-content-between align-items-center">
         <h3><%= chatroom.name %></h3>
-        <h1><%= @counts[chatroom.id] if @counts[chatroom.id].present? %></h1>
+
+          <h1 data-notifications-subscription-target="chatMessagePill"
+              data-chat-index="<%= chatroom.id %>"
+          >
+
+          </h1>
+
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
@@ -17,7 +23,9 @@
           <p class="mb-0"><%= chatroom.event.gym.name %></p>
         </div>
       </div>
+
       <%= link_to "Chat", chatroom_path(chatroom), class: "btn btn-full w-100 mt-3" %>
+
     </div>
   <% end %>
 </div>

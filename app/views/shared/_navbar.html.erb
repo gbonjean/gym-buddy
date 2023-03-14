@@ -24,16 +24,16 @@
     <ion-icon name="calendar-outline">
     <a href="events_path"></a>
     </ion-icon>
-      <%= @index_count if @index_count.positive? %>
     </li>
     <% else %>
      <li class="list-navbar">
      <ion-icon name="calendar-outline">
      <a href="events_path"></a>
      </ion-icon>
-      <%= @index_count if @index_count.positive? %>
      </li>
     <% end %>
+
+    <p data-notifications-subscription-target="navEventPill"></p>
 
   <% end %>
 
@@ -67,7 +67,9 @@
     </ion-icon>
     </li>
   <% end %>
-  <%= @messages_notifications.count if @messages_notifications.count.positive? %>
+
+  <p data-notifications-subscription-target="navMessagePill"></p>
+
  <% end %>
 
 

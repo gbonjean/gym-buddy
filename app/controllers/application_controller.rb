@@ -8,8 +8,11 @@ class ApplicationController < ActionController::Base
   def set_notifications
     @notifications = Notification.where(recipient: current_user)
     @answers_notifications = @notifications.select { |n| n.params[:answer] && n.unread? }
+    @answers = @answers_notifications.map { |n| n.params[:answer] }
     @asks_notifications = @notifications.select { |n| n.params[:ask] && n.unread? }
+    @asks = @asks_notifications.map { |n| n.params[:ask] }
     @messages_notifications = @notifications.select { |n| n.params[:message] && n.unread? }
+    @messages = @messages_notifications.map { |n| n.params[:message] }
     @index_count = @asks_notifications.count + @answers_notifications.count
   end
 

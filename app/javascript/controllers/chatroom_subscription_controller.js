@@ -41,7 +41,6 @@ export default class extends Controller {
 
   reset(event) {
     event.preventDefault()
-    console.log("reset");
     event.target.reset()
   }
 

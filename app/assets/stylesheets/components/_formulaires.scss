@@ -1,0 +1,61 @@
+
+
+.log-card{
+  background-color: #FF8C00;
+  padding-top: 8%;
+  margin-top: 12%;
+  border-radius: 8%;
+  display: grid;
+  justify-content: center;
+  margin: auto auto 22%;
+  width: 90%;
+  padding-bottom: 16%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.input-block{
+  width: 100%;
+
+}
+
+.log-btn{
+  display: grid;
+  justify-content: center;
+  background-color: #FF7518;
+  border-radius: 8%;
+  margin-top: 16%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.log-container, a{
+ text-align: center;
+
+}
+
+.log-container h2 {
+  padding-bottom: 8%;
+}
+
+label{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#user_remember_me{
+  position: fixed;
+}
+
+.log-container h2{
+  font-size: 200%;
+  font-weight: 100;
+}
+
+.sign-btn {
+  background-color: #FF7518;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.mail-forgot{
+  margin-left: 6%;
+  width: 88%;
+}
+

@@ -1,7 +1,10 @@
 require 'faker'
+
 Event.delete_all
 Gym.delete_all
 User.delete_all
+Chatroom.delete_all
+Notification.delete_all
 
 print "Create gyms..."
 Gym.create!(

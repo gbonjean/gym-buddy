@@ -172,6 +172,8 @@ fr:
   events:
     my_events: "Mes évènements"
     no_events: "Vous n'avez aucun évènement pour le moment."
+    no_events_owned: "Vous n'avez créé aucun évènement pour le moment."
+    no_events_joined: "Vous n'avez rejoint aucun évènement pour le moment."
     see_event: "Voir l'évènement"
     see_events: "Voir les évènements"
     no_slots_left: "Il n'y a plus de place disponible pour cet évènement."
@@ -197,6 +199,8 @@ fr:
     free_slots: "places disponibles"
     got_asks: "Vous avez des demandes de participation"
     cancel: "Annuler l'évènement"
+    created_events: "Évènements créés"
+    joined_events: "Évènements rejoints"
   gyms:
     events: "Évènements de la salle"
     no_events: "Il n'y a actuellement aucun évènement pour cette salle."

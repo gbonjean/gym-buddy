@@ -202,6 +202,8 @@ en:
   events:
     my_events: "My events"
     no_events: "You don't have any event at the moment."
+    no_events_owned: "You didn't created any event at the moment."
+    no_events_joined: "You didn't joined any event at the moment."
     see_event: "See the event"
     see_events: "See the events"
     no_slots_left: "There's no available slot for this event."
@@ -227,6 +229,8 @@ en:
     free_slots: "free slots"
     got_asks: "See the attendees requests"
     cancel: "Cancel event"
+    created_events: "Created events"
+    joined_events: "Joined events"
   gyms:
     events: "Gym events"
     no_events: "There's no event for this gym at the moment."

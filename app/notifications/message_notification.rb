@@ -7,11 +7,8 @@ class MessageNotification < Noticed::Base
   # Add your delivery methods
   #
   deliver_by :database
-  deliver_by :action_cable, format: :to_action_cable
+  deliver_by :action_cable, channel: NotificationsChannel
 
-def to_action_cable
-
-end
 
   # Add required params
   #

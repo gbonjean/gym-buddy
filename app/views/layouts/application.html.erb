@@ -15,8 +15,17 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </head>
-  <body>
-
+  <% if user_signed_in? %>
+    <body data-controller="notifications-subscription"
+          data-notifications-subscription-current-user-id-value="<%= current_user.id %>"
+          data-notifications-subscription-index-nav-count-value="<%= @index_count %>"
+          data-notifications-subscription-answers-value="<%= @answers %>"
+          data-notifications-subscription-asks-value="<%= @asks %>"
+          data-notifications-subscription-messages-value="<%= @messages %>"
+    >
+  <% else %>
+    <body>
+  <% end %>
     <%= render "shared/flashes" %>
 
     <%= yield %>

@@ -47,6 +47,14 @@ p {
   transition: 0.5s;
 }
 
+.btn-full-min {
+  background-color: $pumpkin;
+  color: white;
+  border: 2px solid $pumpkin;
+  transition: 0.5s;
+  font-size: 12px;
+}
+
 .btn-full:hover {
   background-color: $orange;
   color: white;
@@ -115,4 +123,11 @@ p {
 
 .dropdown-toggle {
   text-align: left;
+}
+
+button:focus:not(:focus-visible) {
+  color: $pumpkin !important;
+  border: 2px solid $pumpkin;
+  background-color: white;
+  box-shadow: none;
 }

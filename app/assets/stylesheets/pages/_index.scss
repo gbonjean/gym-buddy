@@ -101,3 +101,18 @@ p {
   border: 0;
   background-color: transparent;
 }
+
+.level-text {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  position: relative;
+  left: 65%;
+}
+
+.dropdown-toggle {
+  text-align: left;
+}

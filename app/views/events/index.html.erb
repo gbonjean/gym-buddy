@@ -14,8 +14,7 @@
           <h1 data-notifications-subscription-target="eventPill"
               data-event-index="<%= event.id %>"
           >
-
-
+          
         </div>
         <div class="d-flex justify-content-between align-items-end">
           <% participants = event.bookings.select(&:accepted).map(&:user) %>

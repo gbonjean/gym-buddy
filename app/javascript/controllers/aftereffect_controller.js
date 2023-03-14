@@ -3,7 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="aftereffect"
 export default class extends Controller {
   connect() {
-    console.log("plop !")
 
     var btnContainer = document.getElementById("navbar-container");
 

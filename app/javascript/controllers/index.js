@@ -27,6 +27,3 @@ application.register("message-notifications", MessageNotificationsController)
 
 import NavbarNotificationsController from "./navbar_notifications_controller"
 application.register("navbar-notifications", NavbarNotificationsController)
-
-import NotificationsSubscriptionController from "./notifications_subscription_controller"
-application.register("notifications-subscription", NotificationsSubscriptionController)

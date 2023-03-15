@@ -9,7 +9,9 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
-      { received: data => this.#insertMessageAndScrollDown(data) }
+      { received: data => {
+        this.#insertMessageAndScrollDown(data);
+      }}
     )
     console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
   }
@@ -23,7 +25,7 @@ export default class extends Controller {
 
   #buildMessageElement(currentUserIsSender, message) {
     return `
-      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
+      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}" data-notifications-subscription-target="new">
         <div class="${this.#userStyleClass(currentUserIsSender)}">
           ${message}
         </div>

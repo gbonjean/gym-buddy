@@ -6,14 +6,13 @@ class ApplicationController < ActionController::Base
   private
 
   def set_notifications
-    @notifications = Notification.where(recipient: current_user)
-    @answers_notifications = @notifications.select { |n| n.params[:answer] && n.unread? }
-    @answers = @answers_notifications.map { |n| n.params[:answer] }
-    @asks_notifications = @notifications.select { |n| n.params[:ask] && n.unread? }
-    @asks = @asks_notifications.map { |n| n.params[:ask] }
-    @messages_notifications = @notifications.select { |n| n.params[:message] && n.unread? }
-    @messages = @messages_notifications.map { |n| n.params[:message] }
-    @index_count = @asks_notifications.count + @answers_notifications.count
+    @answers_notifications = current_user.answers_notifications
+    @answers = current_user.answers
+    @asks_notifications = current_user.asks_notifications
+    @asks = current_user.asks
+    @messages_notifications = current_user.messages_notifications
+    @messages = current_user.messages
+    @index_count = @asks.count + @answers.count
   end
 
   def switch_locale(&action)

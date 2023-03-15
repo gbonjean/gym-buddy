@@ -6,7 +6,7 @@ User.delete_all
 Chatroom.delete_all
 Notification.delete_all
 
-print "Create gyms..."
+print "Creating Gyms..."
 Gym.create!(
   name: 'Basic Fit Saint-Ferréol',
   address: '19 Rue Saint-Ferréol Marseille',
@@ -61,66 +61,111 @@ Gym.create!(
 )
 puts "OK!"
 
-print "Create Users..."
-user = User.new(
-  nickname: 'Guillaume',
-  email: 'guillaume@gmail.com',
-  password: '123456',
-  address: '20 rue Haxo Marseille',
-  musculation_lvl: rand(1..3),
-  cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3)
-)
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
-user.avatar.attach(io: file, filename: "guillaume.png", content_type: "image/png")
-user.save!
+print "Creating Users..."
 
 user = User.new(
-  nickname: 'Paulin',
-  email: 'paulin@gmail.com',
+  nickname: 'Maewenn',
+  email: 'maewenn@lewagon.org',
   password: '123456',
-  address: '20 rue Haxo Marseille',
-  musculation_lvl: rand(1..3),
-  cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3),
+  address: '22 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 3,
+  cardio_lvl: 1,
+  fitness_lvl: 1,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user3_ftmicb.jpg")
-user.avatar.attach(io: file, filename: "paulin.png", content_type: "image/png")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+user.avatar.attach(io: file, filename: "maewenn.png", content_type: "image/png")
 user.save!
 
 user = User.new(
-  nickname: 'Jérôme',
-  email: 'jerome@gmail.com',
+  nickname: 'Jean-Loup Le Skinch',
+  email: 'jeanloup@lewagon.org',
   password: '123456',
-  address: '20 rue Haxo Marseille',
-  musculation_lvl: rand(1..3),
-  cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3),
-  locale: "en"
+  address: '24 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 1,
+  cardio_lvl: 3,
+  fitness_lvl: 1,
+  locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271190/gym-buddy/user2_wuxonh.jpg")
-user.avatar.attach(io: file, filename: "jerome.png", content_type: "image/png")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+user.avatar.attach(io: file, filename: "jeanloup.png", content_type: "image/png")
 user.save!
 
 user = User.new(
   nickname: 'Anan',
-  email: 'anan@gmail.com',
+  email: 'anan@lewagon.org',
   password: '123456',
-  address: '20 rue Haxo Marseille',
-  musculation_lvl: 3,
-  cardio_lvl: rand(1..3),
-  fitness_lvl: rand(1..3),
+  address: '26 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 2,
+  cardio_lvl: 1,
+  fitness_lvl: 2,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678461209/IMG_8853_jnrerg.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
 user.avatar.attach(io: file, filename: "anan.png", content_type: "image/png")
+user.save!
+
+user = User.new(
+  nickname: 'Damien',
+  email: 'damien@lewagon.org',
+  password: '123456',
+  address: '28 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 3,
+  cardio_lvl: 2,
+  fitness_lvl: 1,
+  locale: "fr"
+)
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+user.avatar.attach(io: file, filename: "damien.png", content_type: "image/png")
+user.save!
+
+user = User.new(
+  nickname: 'Théo',
+  email: 'theo@lewagon.org',
+  password: '123456',
+  address: '30 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 1,
+  cardio_lvl: 1,
+  fitness_lvl: 3,
+  locale: "fr"
+)
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+user.avatar.attach(io: file, filename: "theo.png", content_type: "image/png")
+user.save!
+
+user = User.new(
+  nickname: 'Dylane',
+  email: 'dylane@lewagon.org',
+  password: '123456',
+  address: '32 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 2,
+  cardio_lvl: 2,
+  fitness_lvl: 2,
+  locale: "fr"
+)
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+user.avatar.attach(io: file, filename: "dylane.png", content_type: "image/png")
+user.save!
+
+user = User.new(
+  nickname: 'Jim',
+  email: 'jim@lewagon.uk',
+  password: '123456',
+  address: '20 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 2,
+  cardio_lvl: 1,
+  fitness_lvl: 2,
+  locale: "en"
+)
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+user.avatar.attach(io: file, filename: "jim.png", content_type: "image/png")
 user.save!
 
 puts "OK!"
 
-print "Create Events..."
-10.times do
+print "Creating Events..."
+
+30.times do
   day = Date.today.day + rand(1..10)
   hour = rand(6..20)
   mins = [0, 30].sample
@@ -137,10 +182,26 @@ print "Create Events..."
   event.musculation = true if !event.musculation && !event.cardio && !event.fitness
   event.end_time = event.start_time + [1800, 3600].sample
   event.save!
-
-  Chatroom.create!(
-    event: event,
-    name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
-  )
 end
+
+day = Date.today.day
+hour = 18
+mins = 30
+event = Event.new(
+  start_time: DateTime.new(2023, 3, day, hour, mins, 0),
+  gym_id: 1,
+  owner_id: 1,
+  description: "Entraînement du Wagon, reste 1 place disponible",
+  musculation: true,
+  cardio: false,
+  fitness: false,
+  slots: 3
+)
+event.end_time = event.start_time + 3600
+event.save!
+
+Chatroom.create!(
+  event: event,
+  name: "#{ I18n.l(event.start_time, format: '%d %B') }} #{I18n.t 'events.from'} #{event.start_time.strftime('%Hh%M')} #{I18n.t 'events.to'} #{event.end_time.strftime('%Hh%M')}"
+)
 puts "OK!"

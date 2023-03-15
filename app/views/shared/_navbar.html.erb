@@ -15,10 +15,9 @@
       </ion-icon>
       </li>
   <% end %>
-
   <% end %>
 
-  <%= link_to  events_path do %>
+  <%= link_to events_path do %>
   <% if current_page?(events_path)%>
     <li class="list-navbar active">
     <ion-icon name="calendar-outline">
@@ -37,7 +36,7 @@
 
   <% end %>
 
-  <%= link_to  new_event_path do %>
+  <%= link_to new_event_path do %>
     <% if current_page?(new_event_path)%>
     <li  class="list-navbar plus_create" id="active">
     <ion-icon name="add-outline">
@@ -53,7 +52,7 @@
     <% end %>
   <% end %>
 
-  <%= link_to  chatrooms_path do %>
+  <%= link_to chatrooms_path do %>
       <% if current_page?(chatrooms_path)%>
     <li class="list-navbar active">
     <ion-icon name="chatbubbles-outline">
@@ -73,7 +72,7 @@
  <% end %>
 
 
-  <%= link_to  profile_path do %>
+  <%= link_to profile_path do %>
       <% if current_page?(profile_path)%>
     <li class="list-navbar active">
     <ion-icon name="person-circle-outline">

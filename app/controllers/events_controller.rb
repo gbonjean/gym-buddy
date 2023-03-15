@@ -83,7 +83,7 @@ class EventsController < ApplicationController
   def create_chatroom(event)
     Chatroom.create!(
       event: event,
-      name: "#{I18n.with_locale(current_user.locale) { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
+      name: "#{I18n.with_locale(current_user.locale) { I18n.l(event.start_time, format: '%d %B') }} #{I18n.t 'events.from'} #{event.start_time.strftime('%Hh%M')} #{I18n.t 'events.to'} #{event.end_time.strftime('%Hh%M')}"
     )
   end
 
@@ -93,9 +93,9 @@ class EventsController < ApplicationController
 
   def notify_inscription(user, accepted)
     answer = if accepted
-               "Vous avez rejoint l'évènement de #{current_user.nickname} !"
+               "#{I18n.t 'events.notifications.join'} #{current_user.nickname} !"
              else
-               "#{current_user.nickname} a refusé votre demande !"
+               "#{current_user.nickname} #{I18n.t 'events.notifications.declined'} !"
              end
     MessageNotification.with(answer: answer).deliver_later(user)
   end

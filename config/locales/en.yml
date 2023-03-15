@@ -48,6 +48,7 @@ en:
     waiting: "Waiting for confirmation"
   chats:
     chat: "Chat"
+    title: "All conversations"
   date:
     abbr_day_names:
     - sun

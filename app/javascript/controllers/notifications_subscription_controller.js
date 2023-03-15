@@ -61,8 +61,16 @@ export default class extends Controller {
   }
 
   #print() {
-    this.navMessagePillTarget.textContent = (this.messagesNavCount > 0) ? this.messagesNavCount : ''
-    this.navEventPillTarget.textContent = (this.asksNavCount > 0) ? this.asksNavCount : ''
+    if (this.messagesNavCount == 0) {
+      this.navMessagePillTarget.classList.add("d-none");
+    } else {
+      this.navMessagePillTarget.textContent = this.messagesNavCount;
+    }
+    if (this.asksNavCount == 0) {
+      this.navEventPillTarget.classList.add("d-none");
+    } else {
+      this.navEventPillTarget.textContent = this.asksNavCount;
+    }
     this.chatMessagePillTargets.forEach(element => {
       element.textContent = this.chatCounts[element.dataset.chatIndex]
     })

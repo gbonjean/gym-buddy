@@ -16,7 +16,6 @@ export default class extends Controller {
         if (current.length > 0) {
           current[0].className = current[0].className.replace(" active", "");
         }
-
         this.className += " active";
       });
     }

@@ -13,7 +13,6 @@ export default class extends Controller {
         this.#insertMessageAndScrollDown(data);
       }}
     )
-    console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
   }
 
   #insertMessageAndScrollDown(data) {
@@ -25,7 +24,7 @@ export default class extends Controller {
 
   #buildMessageElement(currentUserIsSender, message) {
     return `
-      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}" data-notifications-subscription-target="new">
+      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
         <div class="${this.#userStyleClass(currentUserIsSender)}">
           ${message}
         </div>
@@ -47,7 +46,6 @@ export default class extends Controller {
   }
 
   disconnect() {
-    console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
   }
 }

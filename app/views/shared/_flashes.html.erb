@@ -1,6 +1,8 @@
-<% @answers_notifications.each do |notification| %>
-  <%= flash.notice = notification.params[:answer] %>
-  <% notification.destroy %>
+<% if user_signed_in? %>
+  <% @answers_notifications.each do |notification| %>
+    <%= flash.notice = notification.params[:answer] %>
+    <% notification.destroy %>
+  <% end %>
 <% end %>
 
 <% if notice %>

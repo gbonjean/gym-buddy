@@ -6,13 +6,15 @@ class ApplicationController < ActionController::Base
   private
 
   def set_notifications
-    @answers_notifications = current_user.answers_notifications
-    @answers = current_user.answers
-    @asks_notifications = current_user.asks_notifications
-    @asks = current_user.asks
-    @messages_notifications = current_user.messages_notifications
-    @messages = current_user.messages
-    @index_count = @asks.count + @answers.count
+    if user_signed_in?
+      @answers_notifications = current_user.answers_notifications
+      @answers = current_user.answers
+      @asks_notifications = current_user.asks_notifications
+      @asks = current_user.asks
+      @messages_notifications = current_user.messages_notifications
+      @messages = current_user.messages
+      @index_count = @asks.count + @answers.count
+    end
   end
 
   def switch_locale(&action)

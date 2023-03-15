@@ -131,3 +131,16 @@ button:focus:not(:focus-visible) {
   background-color: white;
   box-shadow: none;
 }
+
+.notification-pill {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: relative;
+  bottom: 51px;
+  left: 26px;
+  line-height: 1.75;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 50%;
+}

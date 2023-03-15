@@ -38,8 +38,10 @@ export default class extends Controller {
   #route(data) {
     if (data.message) {
       if (!this.inShow) {
+
         this.#update_messages(data)
       }
+      this.#cleanMessagesNotifications()
       this.inShow = false
     } else if (data.ask) {
       this.#update_asks(data)
@@ -68,6 +70,22 @@ export default class extends Controller {
       element.textContent = this.eventCounts[element.dataset.eventIndex]
     })
 
+  }
+
+  #cleanMessagesNotifications() {
+    let myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    const options = {
+      method: 'GET',
+      headers: myHeaders
+    };
+    fetch(`${window.location.pathname}/transition`, options)
+      .then((reponse) => {
+        return reponse.json()
+      })
+      .then((data) => {
+        console.log(data)
+      })
   }
 
 }

@@ -17,4 +17,29 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def answers_notifications
+    notifications.select { |n| n.params[:answer] }
+  end
+
+  def answers
+    answers_notifications.map { |n| n.params[:answer] }
+  end
+
+  def asks_notifications
+    notifications.select { |n| n.params[:ask] }
+  end
+
+  def asks
+    asks_notifications.map { |n| n.params[:ask] }
+  end
+
+
+  def messages_notifications
+    notifications.select { |n| n.params[:message] }
+  end
+
+  def messages
+    messages_notifications.map { |n| n.params[:message] }
+  end
 end

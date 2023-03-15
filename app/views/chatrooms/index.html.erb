@@ -1,13 +1,17 @@
-<div class="container">
+<div class="container" data-controller="message-notifications"
+    data-message-notifications-current-user-id-value="<%= current_user.id %>"
+    data-message-notifications-messages-value="<%= @messages %>"
+>
   <h1 class="my-3"><%= I18n.t 'chats.title' %></h1>
   <% @chatrooms.each do |chatroom| %>
     <div class="card p-3 border-0 mb-3">
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="mb-0"><%= chatroom.name %></h3>
 
-          <span class="badge text-bg-pumpkin" data-notifications-subscription-target="chatMessagePill"
+          <span class="badge text-bg-pumpkin"
+              data-message-notifications-target="chatMessagePill"
               data-chat-index="<%= chatroom.id %>"
-              >
+          >
           </span>
 
       </div>
@@ -25,8 +29,6 @@
       </div>
 
       <%= link_to "Chat", transition_chatroom_path(chatroom), class: "btn btn-full w-100 mt-3" %>
-      <%# <%= link_to "Chat", chatroom_path(chatroom), class: "btn btn-full w-100 mt-3" %>
-
 
     </div>
   <% end %>

@@ -1,4 +1,7 @@
-<div class="container">
+<div class="container" data-controller="aks-notifications"
+    data-aks-notifications-current-user-id-value="<%= current_user.id %>"
+    data-aks-notifications-asks-value="<%= @asks %>"
+>
   <h1 class="my-3"><%= I18n.t 'events.my_events' %></h1>
   <div class="accordion" id="eventsBlock">
     <div class="accordion-item border-0">
@@ -15,10 +18,12 @@
             <div class="card p-3 border-0 my-3">
               <div class="d-flex justify-content-between align-items-baseline">
                 <h3 class="mb-3"><%= "#{I18n.with_locale(current_user.locale) { I18n.l(event.start_time, format: "%d %B") }} - #{event.start_time.strftime('%Hh%M')} #{I18n.t 'events.to'} #{event.end_time.strftime('%Hh%M')}" %></h3>
-                <span class="badge text-bg-pumpkin" data-notifications-subscription-target="eventPill"
-              data-chat-index="<%= event.id %>"
-              >
-          </span>
+
+                <span class="badge text-bg-pumpkin" data-aks-notifications-target="eventPill"
+                  data-event-index="<%= event.id %>"
+                >
+                </span>
+
               </div>
               <div class="d-flex justify-content-between align-items-end">
                 <% participants = event.bookings.select(&:accepted).map(&:user) %>

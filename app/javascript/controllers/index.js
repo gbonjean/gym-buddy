@@ -7,6 +7,9 @@ import { application } from "./application"
 import AftereffectController from "./aftereffect_controller"
 application.register("aftereffect", AftereffectController)
 
+import AksNotificationsController from "./aks_notifications_controller"
+application.register("aks-notifications", AksNotificationsController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -18,6 +21,12 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import MessageNotificationsController from "./message_notifications_controller"
+application.register("message-notifications", MessageNotificationsController)
+
+import NavbarNotificationsController from "./navbar_notifications_controller"
+application.register("navbar-notifications", NavbarNotificationsController)
 
 import NotificationsSubscriptionController from "./notifications_subscription_controller"
 application.register("notifications-subscription", NotificationsSubscriptionController)

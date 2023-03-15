@@ -1,5 +1,13 @@
 
-<div data-controller="aftereffect" id="navbar-container">
+<% if user_signed_in? %>
+  <div data-controller="aftereffect navbar-notifications" id="navbar-container"
+      data-navbar-notifications-current-user-id-value="<%= current_user.id %>"
+      data-navbar-notifications-messages-value="<%= @messages %>"
+      data-navbar-notifications-asks-value="<%= @asks %>"
+  >
+<% else %>
+  <div data-controller="aftereffect" id="navbar-container">
+<% end %>
 
   <%= link_to gyms_path do %>
   <% if current_page?(gyms_path) %>
@@ -23,14 +31,14 @@
     <ion-icon name="calendar-outline">
     <a href="events_path"></a>
     </ion-icon>
-    <div class="notification-pill d-none" data-notifications-subscription-target="navEventPill"></div>
+    <div class="notification-pill d-none" data-navbar-notifications-target="navEventPill"></div>
     </li>
     <% else %>
      <li class="list-navbar">
      <ion-icon name="calendar-outline">
      <a href="events_path"></a>
      </ion-icon>
-      <div class="notification-pill d-none" data-notifications-subscription-target="navEventPill"></div>
+      <div class="notification-pill d-none" data-navbar-notifications-target="navEventPill"></div>
      </li>
     <% end %>
 
@@ -59,14 +67,14 @@
     <ion-icon name="chatbubbles-outline">
     <a href="chatrooms_path"></a>
     </ion-icon>
-    <div class="notification-pill d-none" data-notifications-subscription-target="navMessagePill"></div>
+    <div class="notification-pill d-none" data-navbar-notifications-target="navMessagePill"></div>
     </li>
       <% else %>
     <li class="list-navbar">
     <ion-icon name="chatbubbles-outline">
     <a href="chatrooms_path"></a>
     </ion-icon>
-    <div class="notification-pill d-none" data-notifications-subscription-target="navMessagePill"></div>
+    <div class="notification-pill d-none" data-navbar-notifications-target="navMessagePill"></div>
     </li>
   <% end %>
 

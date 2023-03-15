@@ -18,6 +18,7 @@ fr:
     waiting: En attente de confirmation
   chats:
     chat: "Chat"
+    title: "Toutes les conversations"
   date:
     abbr_day_names:
     - dim

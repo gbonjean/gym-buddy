@@ -1,8 +1,5 @@
 <div class="container">
   <h1 class="mt-3 mb-3"><%= I18n.t 'events.my_events' %></h1>
-  <% @answers_notifications.each do |notification| %>
-    <%= flash.notice  = notification.params[:answer] %>
-  <% end %>
   <div class="accordion" id="eventsBlock">
     <div class="accordion-item border-0">
       <h2 class="accordion-header" id="headingTwo">

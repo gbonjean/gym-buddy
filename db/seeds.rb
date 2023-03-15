@@ -183,25 +183,9 @@ print "Creating Events..."
   event.end_time = event.start_time + [1800, 3600].sample
   event.save!
 
-  day = Date.today.day
-  hour = 18
-  mins = 30
-  event = Event.new(
-    start_time: DateTime.new(2023, 3, day, hour, mins, 0),
-    gym_id: 1,
-    owner_id: 1,
-    description: "Entraînement du Wagon, reste 1 place disponible",
-    musculation: true,
-    cardio: false,
-    fitness: false,
-    slots: 3
-  )
-  event.end_time = event.start_time + 3600
-  event.save!
-
   Chatroom.create!(
     event: event,
-    name: "#{ I18n.l(event.start_time, format: '%d %B') }} #{I18n.t 'events.from'} #{event.start_time.strftime('%Hh%M')} #{I18n.t 'events.to'} #{event.end_time.strftime('%Hh%M')}"
+    name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
   )
 end
 puts "OK!"

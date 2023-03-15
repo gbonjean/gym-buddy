@@ -4,7 +4,7 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="notifications-subscription"
 export default class extends Controller {
   static values = { currentUserId: Number, answers: Array, asks: Array, messages: Array }
-  static targets = ["navMessagePill", "chatMessagePill", "navEventPill", "eventPill"]
+  static targets = ["navMessagePill", "chatMessagePill", "navEventPill", "eventPill", "new"]
 
   connect() {
     // console.log('ggg');
@@ -13,6 +13,10 @@ export default class extends Controller {
       { channel: "NotificationsChannel", id: this.currentUserIdValue },
       { received: data => this.#route(data) }
     )
+  }
+
+  newTargetConnected(target) {
+    this.inShow = true
   }
 
   #initCounters() {
@@ -33,7 +37,10 @@ export default class extends Controller {
 
   #route(data) {
     if (data.message) {
-      this.#update_messages(data)
+      if (!this.inShow) {
+        this.#update_messages(data)
+      }
+      this.inShow = false
     } else if (data.ask) {
       this.#update_asks(data)
     }

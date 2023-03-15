@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: %i[index show] do
     resources :messages, only: :create
+    member do
+      get :transition, to: "chatrooms#transition"
+    end
   end
 
   get :profile, to: "profiles#show"

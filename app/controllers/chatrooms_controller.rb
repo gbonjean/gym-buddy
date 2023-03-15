@@ -8,7 +8,12 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
-    @messages_notifications.each { |n| n.destroy if n.params[:message] == @chatroom.id }
     @message = Message.new
+  end
+
+  def transition
+    @chatroom = Chatroom.find(params[:id])
+    @messages_notifications.each { |n| n.destroy if n.params[:message] == @chatroom.id }
+    redirect_to chatroom_path(@chatroom)
   end
 end

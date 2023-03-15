@@ -33,8 +33,7 @@ class User < ApplicationRecord
   def asks
     asks_notifications.map { |n| n.params[:ask] }
   end
-
-
+  
   def messages_notifications
     notifications.select { |n| n.params[:message] }
   end

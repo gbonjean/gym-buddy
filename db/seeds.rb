@@ -165,7 +165,7 @@ puts "OK!"
 
 print "Creating Events..."
 
-30.times do
+15.times do
   day = Date.today.day + rand(1..10)
   hour = rand(6..20)
   mins = [0, 30].sample
@@ -182,26 +182,26 @@ print "Creating Events..."
   event.musculation = true if !event.musculation && !event.cardio && !event.fitness
   event.end_time = event.start_time + [1800, 3600].sample
   event.save!
+
+  day = Date.today.day
+  hour = 18
+  mins = 30
+  event = Event.new(
+    start_time: DateTime.new(2023, 3, day, hour, mins, 0),
+    gym_id: 1,
+    owner_id: 1,
+    description: "Entraînement du Wagon, reste 1 place disponible",
+    musculation: true,
+    cardio: false,
+    fitness: false,
+    slots: 3
+  )
+  event.end_time = event.start_time + 3600
+  event.save!
+
+  Chatroom.create!(
+    event: event,
+    name: "#{ I18n.l(event.start_time, format: '%d %B') }} #{I18n.t 'events.from'} #{event.start_time.strftime('%Hh%M')} #{I18n.t 'events.to'} #{event.end_time.strftime('%Hh%M')}"
+  )
 end
-
-day = Date.today.day
-hour = 18
-mins = 30
-event = Event.new(
-  start_time: DateTime.new(2023, 3, day, hour, mins, 0),
-  gym_id: 1,
-  owner_id: 1,
-  description: "Entraînement du Wagon, reste 1 place disponible",
-  musculation: true,
-  cardio: false,
-  fitness: false,
-  slots: 3
-)
-event.end_time = event.start_time + 3600
-event.save!
-
-Chatroom.create!(
-  event: event,
-  name: "#{ I18n.l(event.start_time, format: '%d %B') }} #{I18n.t 'events.from'} #{event.start_time.strftime('%Hh%M')} #{I18n.t 'events.to'} #{event.end_time.strftime('%Hh%M')}"
-)
 puts "OK!"

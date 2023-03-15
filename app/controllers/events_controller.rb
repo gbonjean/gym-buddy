@@ -93,7 +93,7 @@ class EventsController < ApplicationController
 
   def notify_inscription(user, accepted)
     answer = if accepted
-               "#{I18n.t 'events.notifications.join'} #{current_user.nickname} !"
+               "#{I18n.t 'events.notifications.joined'} #{current_user.nickname} !"
              else
                "#{current_user.nickname} #{I18n.t 'events.notifications.declined'} !"
              end

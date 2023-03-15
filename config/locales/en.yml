@@ -231,6 +231,9 @@ en:
     cancel: "Cancel event"
     created_events: "Created events"
     joined_events: "Joined events"
+    notifications:
+      joined: "You've just joined the event of"
+      declined: "declined your request."
   gyms:
     events: "Gym events"
     no_events: "There's no event for this gym at the moment."

@@ -201,6 +201,9 @@ fr:
     cancel: "Annuler l'évènement"
     created_events: "Évènements créés"
     joined_events: "Évènements rejoints"
+    notifications:
+      joined: "Vous avez rejoint l'évènement de"
+      declined: "a refusé votre demande"
   gyms:
     events: "Évènements de la salle"
     no_events: "Il n'y a actuellement aucun évènement pour cette salle."

@@ -159,10 +159,10 @@ custom_event = Event.new(
   start_time: DateTime.new(2023, 3, custom_day, custom_hour, custom_mins, 0),
   gym_id: 1,
   owner_id: 1,
-  description: DESCS.sample,
-  musculation: [true, false].sample,
-  cardio: false.sample,
-  fitness: false.sample,
+  description: "Entraînement avec les copaings du Wagon !",
+  musculation: true,
+  cardio: false,
+  fitness: false,
   slots: 3
 )
 custom_event.end_time = event.start_time + 3600

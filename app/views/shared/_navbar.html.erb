@@ -13,14 +13,14 @@
   <% if current_page?(gyms_path) %>
       <li class="list-navbar active">
         <i class="fa-solid fa-magnifying-glass">
-        </i>
           <a href="gyms_path"></a>
+        </i>
       </li>
   <% else %>
       <li class="list-navbar">
         <i class="fa-solid fa-magnifying-glass">
-        </i>
           <a href="gyms_path"></a>
+        </i>
       </li>
   <% end %>
   <% end %>
@@ -29,15 +29,15 @@
   <% if current_page?(events_path)%>
     <li class="list-navbar active">
       <i class="fa-solid fa-calendar-days">
-      </i>
         <a href="events_path"></a>
+      </i>
     <div class="notification-pill d-none" data-navbar-notifications-target="navEventPill"></div>
     </li>
     <% else %>
      <li class="list-navbar">
       <i class="fa-solid fa-calendar-days">
-      </i>
         <a href="events_path"></a>
+      </i>
       <div class="notification-pill d-none" data-navbar-notifications-target="navEventPill"></div>
      </li>
     <% end %>
@@ -48,33 +48,35 @@
   <%= link_to new_event_path do %>
     <% if current_page?(new_event_path)%>
     <li  class="list-navbar plus_create" id="active">
-      <i class="fa-solid fa-plus"></i>
+<i class="fa-solid fa-plus"></i>
         <a href="new_event_path"></a>
     </li>
       <% else %>
     <li  class="list-navbar plus_create">
-      <i class="fa-solid fa-plus"></i>
+<i class="fa-solid fa-plus"></i>
         <a href="new_event_path"></a>
     </li>
     <% end %>
   <% end %>
 
-  <%= link_to chatrooms_path do %>
-      <% if current_page?(chatrooms_path)%>
+<%= link_to chatrooms_path do %>
+  <% if current_page?(chatrooms_path)%>
     <li class="list-navbar active">
-<i class="fa-regular fa-comment">
-      </i>
+    <i class="fa-regular fa-comment">
         <a href="chatrooms_path"></a>
+      </i>
     <div class="notification-pill d-none" data-navbar-notifications-target="navMessagePill"></div>
     </li>
       <% else %>
     <li class="list-navbar">
 <i class="fa-regular fa-comment">
-      </i>
         <a href="chatrooms_path"></a>
+      </i>
     <div class="notification-pill d-none" data-navbar-notifications-target="navMessagePill"></div>
     </li>
   <% end %>
+
+
  <% end %>
 
 
@@ -82,14 +84,14 @@
       <% if current_page?(profile_path)%>
     <li class="list-navbar active">
       <i class="fa-regular fa-user">
-      </i>
        <a href="profile_path"></a>
+      </i>
     </li>
       <% else %>
     <li class="list-navbar">
       <i class="fa-regular fa-user">
-      </i>
        <a href="profile_path"></a>
+      </i>
     </li>
   <% end %>
  <% end %>

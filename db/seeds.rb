@@ -63,7 +63,7 @@ user = User.new(
   email: 'jeanloup@lewagon.org',
   password: '123456',
   address: '24 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 1,
+  musculation_lvl: 3,
   cardio_lvl: 3,
   fitness_lvl: 1,
   locale: "fr"
@@ -77,7 +77,7 @@ user = User.new(
   email: 'anan@lewagon.org',
   password: '123456',
   address: '26 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 2,
+  musculation_lvl: 3,
   cardio_lvl: 1,
   fitness_lvl: 2,
   locale: "fr"
@@ -91,9 +91,9 @@ user = User.new(
   email: 'theo@lewagon.org',
   password: '123456',
   address: '30 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 1,
+  musculation_lvl: 3,
   cardio_lvl: 1,
-  fitness_lvl: 3,
+  fitness_lvl: 1,
   locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/theo_gvfblv.jpg")
@@ -107,7 +107,7 @@ user = User.new(
   email: 'damien@lewagon.org',
   password: '123456',
   address: '30 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 1,
+  musculation_lvl: 3,
   cardio_lvl: 1,
   fitness_lvl: 3,
   locale: "fr"
@@ -143,6 +143,7 @@ DESCS = [
     slots: rand(1..3)
   )
   event.musculation = true if !event.musculation && !event.cardio && !event.fitness
+  event.fitness = false if event.musculation && event.cardio && event.fitness
   event.end_time = event.start_time + [1800, 3600].sample
   event.save!
 
@@ -159,10 +160,10 @@ custom_event = Event.new(
   start_time: DateTime.new(2023, 3, custom_day, custom_hour, custom_mins, 0),
   gym_id: 1,
   owner_id: 1,
-  description: DESCS.sample,
-  musculation: [true, false].sample,
-  cardio: false.sample,
-  fitness: false.sample,
+  description: "Manque un gros costaud pour un entraînement avec les copaings du Wagon !",
+  musculation: true,
+  cardio: false,
+  fitness: false,
   slots: 3
 )
 custom_event.end_time = event.start_time + 3600
@@ -170,7 +171,7 @@ custom_event.save!
 
 Chatroom.create!(
   event: custom_event,
-  name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
+  name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} - #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
 )
 
 puts "OK!"

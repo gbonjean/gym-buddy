@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show show_update asks asks_update]
 
   def index
-    @events = Event.order(:start_time).select { |e| e.owner == current_user || e.users.include?(current_user) }
+    @events = Event.includes([:owner]).includes([:users]).order(:start_time).select { |e| e.owner == current_user || e.users.include?(current_user) }
     @my_events = Event.order(:start_time).select { |e| e.owner == current_user }
     @joined_events = Event.order(:start_time).select { |e| e.users.include?(current_user) }
     @answers_notifications.each(&:mark_as_read!)

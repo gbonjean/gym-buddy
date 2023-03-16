@@ -171,7 +171,7 @@ custom_event.save!
 
 Chatroom.create!(
   event: custom_event,
-  name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} - #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
+  name: "#{I18n.with_locale('fr') { I18n.l(custom_event.start_time, format: '%d %B') }} - #{custom_event.start_time.strftime('%Hh%M')} à #{custom_event.end_time.strftime('%Hh%M')}"
 )
 
 puts "OK!"

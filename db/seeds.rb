@@ -59,7 +59,7 @@ user.avatar.attach(io: file, filename: "maewenn.png", content_type: "image/png")
 user.save!
 
 user = User.new(
-  nickname: 'Jean-Loup Le Skinch',
+  nickname: 'Jean-Loup',
   email: 'jeanloup@lewagon.org',
   password: '123456',
   address: '24 Rue Haxo, 13001 Marseille',
@@ -102,13 +102,29 @@ user.save!
 
 puts "OK!"
 
+user = User.new(
+  nickname: 'Damien',
+  email: 'damien@lewagon.org',
+  password: '123456',
+  address: '30 Rue Haxo, 13001 Marseille',
+  musculation_lvl: 1,
+  cardio_lvl: 1,
+  fitness_lvl: 3,
+  locale: "fr"
+)
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/damien_c706eu.jpg")
+user.avatar.attach(io: file, filename: "damien.png", content_type: "image/png")
+user.save!
+
+puts "OK!"
+
 print "Creating Events..."
 
 DESCS = [
-  "Viens dans mon event, y'aura des cookies",
-  "T'as vu comme je suis sexy ? Viens voir ça de plus près",
-  "Booooaaaaaaaargh ! *bande les muscles*",
-  "Viens, c'est comme coder du Ruby, mais avec de la sueur",
+  "Viens dans mon event, y'aura des cookies.",
+  "T'as vu comme je suis sexy ? Viens voir ça de plus près.",
+  "Booooaaaaaaaargh ! *bande les muscles*.",
+  "Viens, c'est comme coder du Ruby, mais avec de la sueur.",
   "Bienvenue, mes baby-sportifs !"
 ]
 
@@ -135,4 +151,26 @@ DESCS = [
     name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
   )
 end
+
+custom_day = Date.today.day
+custom_hour = 18
+custom_mins = 0
+custom_event = Event.new(
+  start_time: DateTime.new(2023, 3, custom_day, custom_hour, custom_mins, 0),
+  gym_id: 1,
+  owner_id: 1,
+  description: DESCS.sample,
+  musculation: [true, false].sample,
+  cardio: false.sample,
+  fitness: false.sample,
+  slots: 3
+)
+custom_event.end_time = event.start_time + 3600
+custom_event.save!
+
+Chatroom.create!(
+  event: custom_event,
+  name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
+)
+
 puts "OK!"

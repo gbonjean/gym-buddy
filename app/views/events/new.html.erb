@@ -5,18 +5,13 @@
   <%= simple_form_for(@event) do |f| %>
   <%= f.association :gym, label: (I18n.t 'events.place'), label_html: { class: "form-label fw-bold custom-label-form" } %>
 
-  <div class="row">
-    <div class="col">
-      <%= f.input :start_time, as: :string, label: (I18n.t 'events.start'),
+  <%= f.input :start_time, as: :string, label: (I18n.t 'events.start'),
         wrapper_html: { class: "mb-4" },
                   input_html: { data: {controller: "flatpickr" } }, label_html: { class: "form-label fw-bold custom-label-form" } %>
-    </div>
-    <div class="col">
-      <%= f.input :end_time, as: :string, label: (I18n.t 'events.end'),
+
+  <%= f.input :end_time, as: :string, label: (I18n.t 'events.end'),
         wrapper_html: { class: "mb-4" },
                   input_html: { data: { controller: "flatpickr" } }, label_html: { class: "form-label fw-bold custom-label-form" } %>
-    </div>
-  </div>
 
     <%= f.input :slots, label: (I18n.t 'events.slots'), collection: [ "1", "2", "3"], label_html: { class: "form-label fw-bold custom-label-form" } %>
     <p class="custom-label-form mb-3"><%= I18n.t 'disciplines.disciplines' %></p>

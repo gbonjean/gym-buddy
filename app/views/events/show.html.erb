@@ -80,11 +80,9 @@
   <div class="d-grid gap-2 mb-5">
     <% if @is_owner %>
         <% unless @askers.empty? %>
-
-          <button class="d-flex align-items-center border-0 rounded" type="button">
+          <button class="d-flex align-items-center border-0 rounded px-0" type="button">
             <%= link_to (I18n.t 'events.got_asks'), asks_event_path(slots: @free_slots), {class: 'btn btn-primary text-white w-100'} %>
           </button>
-
         <% end %>
         <% unless @participants.empty? %>
           <button class="d-flex align-items-center border-0 rounded px-0" type="button">
@@ -99,7 +97,7 @@
           </button>
           <%= button_to (I18n.t 'asks.cancel_attendee'), {controller: "events", action: "show_update", cancel: true}, {class: 'btn btn-danger text-white w-100'}  %>
         <% elsif @askers.include? current_user %>
-          <button class="btn btn-outline-primary" type="button" disabled><%= I18n.t 'asks.waiting' %></button>
+          <button class="btn btn-outline-primary px-0" type="button" disabled><%= I18n.t 'asks.waiting' %></button>
           <%= button_to (I18n.t 'asks.cancel'), {controller: "events", action: "show_update", cancel: true}, {class: 'btn btn-danger text-white w-100'}  %>
         <% elsif @free_slots.positive? %>
           <%= button_to (I18n.t 'asks.ask'), {controller: "events", action: "show_update", ask: true}, {class: 'btn btn-primary text-white w-100'}  %>

@@ -48,7 +48,10 @@ en:
     waiting: "Waiting for confirmation"
   chats:
     chat: "Chat"
+    message: "Write your message here"
+    send: "Send"
     title: "All conversations"
+    empty: "Your events conversations will appears here when there's at least 2 peoples in an event."
   date:
     abbr_day_names:
     - sun
@@ -232,6 +235,7 @@ en:
     cancel: "Cancel event"
     created_events: "Created events"
     joined_events: "Joined events"
+    details: "Details"
     notifications:
       joined: "You've just joined the event of"
       declined: "declined your request."

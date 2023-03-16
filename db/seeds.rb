@@ -33,32 +33,13 @@ Gym.create!(
   address: '172 Rue de Rome, 13006 Marseille',
   logo: 'clubs/KeepCool.jpg'
 )
-Gym.create!(
-  name: "L'Orange Bleue Longchamp",
-  address: '117 Boulevard Camille Flammarion, 13004 Marseille',
-  logo: 'clubs/orangebleue.png'
-)
+
 Gym.create!(
   name: "Life Club",
   address: '40 Rue du Docteur Escat, 13006 Marseille',
   logo: 'clubs/lifeclub.jpg'
 )
-Gym.create!(
-  name: "Wellness Sport Club Prado",
-  address: '330 Avenue du Prado, 13008 Marseille',
-  logo: 'clubs/wellness.png'
-)
-Gym.create!(
-  name: "Fitness Park Terrasses du Port",
-  address: '9 Quai du Lazaret, 13002 Marseille',
-  logo: 'clubs/FitnessPark.jpg'
-)
-Gym.create!(
-  name: 'Basic-Fit Quai de la Joliette',
-  address: '4 Quai de la Joliette, 13002 Marseille',
-  franchise: 'Basic Fit',
-  logo: 'clubs/BasicFit.png'
-)
+
 puts "OK!"
 
 print "Creating Users..."
@@ -106,20 +87,6 @@ user.avatar.attach(io: file, filename: "anan.png", content_type: "image/png")
 user.save!
 
 user = User.new(
-  nickname: 'Damien',
-  email: 'damien@lewagon.org',
-  password: '123456',
-  address: '28 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 3,
-  cardio_lvl: 2,
-  fitness_lvl: 1,
-  locale: "fr"
-)
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/damien_c706eu.jpg")
-user.avatar.attach(io: file, filename: "damien.png", content_type: "image/png")
-user.save!
-
-user = User.new(
   nickname: 'Théo',
   email: 'theo@lewagon.org',
   password: '123456',
@@ -133,39 +100,19 @@ file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/g
 user.avatar.attach(io: file, filename: "theo.png", content_type: "image/png")
 user.save!
 
-user = User.new(
-  nickname: 'Dylane',
-  email: 'dylane@lewagon.org',
-  password: '123456',
-  address: '32 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 2,
-  cardio_lvl: 2,
-  fitness_lvl: 2,
-  locale: "fr"
-)
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/dylane_ronktf.jpg")
-user.avatar.attach(io: file, filename: "dylane.png", content_type: "image/png")
-user.save!
-
-user = User.new(
-  nickname: 'Jim',
-  email: 'jim@lewagon.uk',
-  password: '123456',
-  address: '20 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 2,
-  cardio_lvl: 1,
-  fitness_lvl: 2,
-  locale: "en"
-)
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
-user.avatar.attach(io: file, filename: "jim.png", content_type: "image/png")
-user.save!
-
 puts "OK!"
 
 print "Creating Events..."
 
-15.times do
+DESCS = [
+  "Viens dans mon event, y'aura des cookies",
+  "T'as vu comme je suis sexy ? Viens voir ça de plus près",
+  "Booooaaaaaaaargh ! *bande les muscles*",
+  "Viens, c'est comme coder du Ruby, mais avec de la sueur",
+  "Bienvenue, mes baby-sportifs !"
+]
+
+10.times do
   day = Date.today.day + rand(1..10)
   hour = rand(6..20)
   mins = [0, 30].sample
@@ -173,7 +120,7 @@ print "Creating Events..."
     start_time: DateTime.new(2023, 3, day, hour, mins, 0),
     gym: Gym.all.sample,
     owner: User.all.sample,
-    description: Faker::ChuckNorris.fact,
+    description: DESCS.sample,
     musculation: [true, false].sample,
     cardio: [true, false].sample,
     fitness: [true, false].sample,

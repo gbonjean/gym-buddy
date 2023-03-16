@@ -1,26 +1,26 @@
 
 <% if user_signed_in? %>
-  <div data-controller="navbar-notifications" id="navbar-container"
+  <div data-controller="aftereffect navbar-notifications" id="navbar-container"
       data-navbar-notifications-current-user-id-value="<%= current_user.id %>"
       data-navbar-notifications-messages-value="<%= @messages %>"
       data-navbar-notifications-asks-value="<%= @asks %>"
   >
 <% else %>
-  <div id="navbar-container">
+  <div data-controller="aftereffect" id="navbar-container">
 <% end %>
 
   <%= link_to gyms_path do %>
   <% if current_page?(gyms_path) %>
       <li class="list-navbar active">
-        <ion-icon name="search-outline">
+        <i class="fa-solid fa-magnifying-glass">
           <a href="gyms_path"></a>
-        </ion-icon>
+        </i>
       </li>
   <% else %>
       <li class="list-navbar">
-      <ion-icon name="search-outline">
-      <a href="gyms_path"></a>
-      </ion-icon>
+        <i class="fa-solid fa-magnifying-glass">
+          <a href="gyms_path"></a>
+        </i>
       </li>
   <% end %>
   <% end %>
@@ -28,16 +28,16 @@
   <%= link_to events_path do %>
   <% if current_page?(events_path)%>
     <li class="list-navbar active">
-    <ion-icon name="calendar-outline">
-    <a href="events_path"></a>
-    </ion-icon>
+      <i class="fa-solid fa-calendar-days">
+        <a href="events_path"></a>
+      </i>
     <div class="notification-pill d-none" data-navbar-notifications-target="navEventPill"></div>
     </li>
     <% else %>
      <li class="list-navbar">
-     <ion-icon name="calendar-outline">
-     <a href="events_path"></a>
-     </ion-icon>
+      <i class="fa-solid fa-calendar-days">
+        <a href="events_path"></a>
+      </i>
       <div class="notification-pill d-none" data-navbar-notifications-target="navEventPill"></div>
      </li>
     <% end %>
@@ -48,15 +48,13 @@
   <%= link_to new_event_path do %>
     <% if current_page?(new_event_path)%>
     <li  class="list-navbar plus_create" id="active">
-    <ion-icon name="add-outline">
-    <a href="new_event_path"></a>
-    </ion-icon>
+<i class="fa-solid fa-plus"></i>
+        <a href="new_event_path"></a>
     </li>
       <% else %>
     <li  class="list-navbar plus_create">
-    <ion-icon name="add-outline">
-    <a href="new_event_path"></a>
-    </ion-icon>
+<i class="fa-solid fa-plus"></i>
+        <a href="new_event_path"></a>
     </li>
     <% end %>
   <% end %>
@@ -64,16 +62,16 @@
   <%= link_to chatrooms_path do %>
       <% if current_page?(chatrooms_path)%>
     <li class="list-navbar active">
-    <ion-icon name="chatbubbles-outline">
-    <a href="chatrooms_path"></a>
-    </ion-icon>
+<i class="fa-regular fa-comment">
+        <a href="chatrooms_path"></a>
+      </i>
     <div class="notification-pill d-none" data-navbar-notifications-target="navMessagePill"></div>
     </li>
       <% else %>
     <li class="list-navbar">
-    <ion-icon name="chatbubbles-outline">
-    <a href="chatrooms_path"></a>
-    </ion-icon>
+<i class="fa-regular fa-comment">
+        <a href="chatrooms_path"></a>
+      </i>
     <div class="notification-pill d-none" data-navbar-notifications-target="navMessagePill"></div>
     </li>
   <% end %>
@@ -85,15 +83,15 @@
   <%= link_to profile_path do %>
       <% if current_page?(profile_path)%>
     <li class="list-navbar active">
-    <ion-icon name="person-circle-outline">
-    <a href="profile_path"></a>
-    </ion-icon>
+      <i class="fa-regular fa-user">
+       <a href="profile_path"></a>
+      </i>
     </li>
       <% else %>
     <li class="list-navbar">
-    <ion-icon name="person-circle-outline">
-    <a href="profile_path"></a>
-    </ion-icon>
+      <i class="fa-regular fa-user">
+       <a href="profile_path"></a>
+      </i>
     </li>
   <% end %>
  <% end %>

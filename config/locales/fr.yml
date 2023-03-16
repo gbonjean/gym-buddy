@@ -18,7 +18,10 @@ fr:
     waiting: En attente de confirmation
   chats:
     chat: "Chat"
+    message: "Écrivez votre message ici"
+    send: "Envoyer"
     title: "Toutes les conversations"
+    empty: "Vos conversations apparaitront automatiquement ici pour chaque évènement dès lors que vous serez au moins 2 dans celui-ci."
   date:
     abbr_day_names:
     - dim
@@ -202,6 +205,7 @@ fr:
     cancel: "Annuler l'évènement"
     created_events: "Évènements créés"
     joined_events: "Évènements rejoints"
+    details: "Détails"
     notifications:
       joined: "Vous avez rejoint l'évènement de"
       declined: "a refusé votre demande"

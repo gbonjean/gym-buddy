@@ -1,9 +1,12 @@
-<div class="container" >
-  <div class="card p-3 border-0 mb-3">
-    <h3><%= @chatroom.name %><h3>
-    <div class="d-flex align-items-center">
-      <%= image_tag @chatroom.event.gym.logo, alt: "logo", width: 30, height: 30, class: "rounded-circle me-2" %>
-      <p class="mb-0"><%= @chatroom.event.gym.name %></p>
+<div class="container">
+  <div class="card p-3 border-0 my-3">
+    <h3 class="mb-3"><%= @chatroom.name %><h3>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <%= image_tag @chatroom.event.gym.logo, alt: "logo", width: 30, height: 30, class: "rounded-circle me-2" %>
+        <p class="mb-0"><%= @chatroom.event.gym.name %></p>
+      </div>
+      <%= link_to (I18n.t 'events.details'), event_path(@chatroom), class: "btn btn-full" %>
     </div>
   </div>
 </div>
@@ -24,13 +27,11 @@
   </div>
 
   <%= simple_form_for [@chatroom, @message],
-    html: { data: { action: "turbo:submit-end->chatroom-subscription#reset" }, class: "d-flex" } do |f|
+    html: { data: { action: "turbo:submit-end->chatroom-subscription#reset" }, class: "d-flex px-0" } do |f|
   %>
-    <%= f.input :content, label: false, placeholder: "Votre message", wrapper_html: {class: "flex-grow-1"} %>
-    <%= f.submit "Envoyer", class: "btn_chatroom btn mb-3" %>
+    <%= f.input :content, label: false, placeholder: (I18n.t 'chats.message'), wrapper_html: {class: "flex-grow-1 me-2"} %>
+    <%= f.submit (I18n.t 'chats.send'), class: "btn_chatroom btn text-white mb-3" %>
   <% end %>
 </div>
-
-
 
 <div class="mb-custom">

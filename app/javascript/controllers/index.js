@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import AftereffectController from "./aftereffect_controller"
-application.register("aftereffect", AftereffectController)
-
 import AksNotificationsController from "./aks_notifications_controller"
 application.register("aks-notifications", AksNotificationsController)
 

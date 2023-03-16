@@ -166,7 +166,7 @@ custom_event = Event.new(
   fitness: false,
   slots: 3
 )
-custom_event.end_time = event.start_time + 3600
+custom_event.end_time = custom_event.start_time + 3600
 custom_event.save!
 
 Chatroom.create!(

@@ -3,33 +3,38 @@
     data-message-notifications-messages-value="<%= @messages %>"
 >
   <h1 class="my-3"><%= I18n.t 'chats.title' %></h1>
-  <% @chatrooms.each do |chatroom| %>
-    <div class="card p-3 border-0 mb-3">
-      <div class="d-flex justify-content-between align-items-center">
-        <h3 class="mb-0"><%= chatroom.name %></h3>
+  <% if @chatrooms.empty? %>
+    <p class="my-3"><%= I18n.t 'chats.empty' %></p>
+    <%= link_to (I18n.t 'events.see_events'), events_path, class: "btn btn-full" %>
+  <% else %>
+    <% @chatrooms.each do |chatroom| %>
+      <div class="card p-3 border-0 mb-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="mb-0"><%= chatroom.name %></h3>
 
-          <span class="badge text-bg-pumpkin"
-              data-message-notifications-target="chatMessagePill"
-              data-chat-index="<%= chatroom.id %>"
-          >
-          </span>
+            <span class="badge text-bg-pumpkin"
+                data-message-notifications-target="chatMessagePill"
+                data-chat-index="<%= chatroom.id %>"
+            >
+            </span>
+
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div class="d-flex align-items-baseline">
+            <%= cl_image_tag chatroom.event.owner.avatar.key, height: 40, width: 40, class: "rounded-circle me-1" %>
+            <% chatroom.event.bookings.select(&:accepted).map(&:user).each do |participant| %>
+              <%= cl_image_tag participant.avatar.key, height: 30, width: 30, class: "rounded-circle me-1" %>
+            <% end %>
+          </div>
+          <div class="d-flex align-items-center">
+            <%= image_tag chatroom.event.gym.logo, alt: "logo", width: 30, height: 30, class: "rounded-circle me-2" %>
+            <p class="mb-0"><%= chatroom.event.gym.name %></p>
+          </div>
+        </div>
+
+        <%= link_to "Chat", transition_chatroom_path(chatroom), class: "btn btn-full w-100 mt-3" %>
 
       </div>
-      <div class="d-flex justify-content-between align-items-center mt-3">
-        <div class="d-flex align-items-center">
-          <%= cl_image_tag chatroom.event.owner.avatar.key, height: 40, width: 40, class: "rounded-circle me-1" %>
-          <% chatroom.event.bookings.select(&:accepted).map(&:user).each do |participant| %>
-            <%= cl_image_tag participant.avatar.key, height: 30, width: 30, class: "rounded-circle me-1" %>
-          <% end %>
-        </div>
-        <div class="d-flex align-items-center">
-          <%= image_tag chatroom.event.gym.logo, alt: "logo", width: 30, height: 30, class: "rounded-circle me-2" %>
-          <p class="mb-0"><%= chatroom.event.gym.name %></p>
-        </div>
-      </div>
-
-      <%= link_to "Chat", transition_chatroom_path(chatroom), class: "btn btn-full w-100 mt-3" %>
-
-    </div>
+    <% end %>
   <% end %>
 </div>

@@ -73,7 +73,7 @@ user = User.new(
   fitness_lvl: 1,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/maewenn_ihl6ed.jpg")
 user.avatar.attach(io: file, filename: "maewenn.png", content_type: "image/png")
 user.save!
 
@@ -87,7 +87,7 @@ user = User.new(
   fitness_lvl: 1,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/jeanloup_hsxauy.jpg")
 user.avatar.attach(io: file, filename: "jeanloup.png", content_type: "image/png")
 user.save!
 
@@ -101,7 +101,7 @@ user = User.new(
   fitness_lvl: 2,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912647/gym-buddy/anan_zzjkul.jpg")
 user.avatar.attach(io: file, filename: "anan.png", content_type: "image/png")
 user.save!
 
@@ -115,7 +115,7 @@ user = User.new(
   fitness_lvl: 1,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/damien_c706eu.jpg")
 user.avatar.attach(io: file, filename: "damien.png", content_type: "image/png")
 user.save!
 
@@ -129,7 +129,7 @@ user = User.new(
   fitness_lvl: 3,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/theo_gvfblv.jpg")
 user.avatar.attach(io: file, filename: "theo.png", content_type: "image/png")
 user.save!
 
@@ -143,7 +143,7 @@ user = User.new(
   fitness_lvl: 2,
   locale: "fr"
 )
-file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678271189/gym-buddy/user1_gbzrq2.jpg")
+file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/dylane_ronktf.jpg")
 user.avatar.attach(io: file, filename: "dylane.png", content_type: "image/png")
 user.save!
 

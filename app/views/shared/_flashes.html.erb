@@ -1,21 +1,9 @@
 <% if user_signed_in? %>
   <% @answers_notifications.each do |notification| %>
-    <%= flash.notice = notification.params[:answer] %>
+    <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
+      <%= notification.params[:answer] %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <% notification.destroy %>
   <% end %>
-<% end %>
-
-<% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
-<% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
 <% end %>

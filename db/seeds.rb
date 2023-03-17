@@ -51,7 +51,7 @@ user = User.new(
   address: '22 Rue Haxo, 13001 Marseille',
   musculation_lvl: 3,
   cardio_lvl: 1,
-  fitness_lvl: 1,
+  fitness_lvl: 2,
   locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/maewenn_ihl6ed.jpg")
@@ -64,8 +64,8 @@ user = User.new(
   password: '123456',
   address: '24 Rue Haxo, 13001 Marseille',
   musculation_lvl: 3,
-  cardio_lvl: 3,
-  fitness_lvl: 1,
+  cardio_lvl: 0,
+  fitness_lvl: 0,
   locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/jeanloup_hsxauy.jpg")
@@ -77,9 +77,9 @@ user = User.new(
   email: 'anan@lewagon.org',
   password: '123456',
   address: '26 Rue Haxo, 13001 Marseille',
-  musculation_lvl: 3,
-  cardio_lvl: 1,
-  fitness_lvl: 2,
+  musculation_lvl: 2,
+  cardio_lvl: 0,
+  fitness_lvl: 0,
   locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912647/gym-buddy/anan_zzjkul.jpg")
@@ -92,8 +92,8 @@ user = User.new(
   password: '123456',
   address: '30 Rue Haxo, 13001 Marseille',
   musculation_lvl: 3,
-  cardio_lvl: 1,
-  fitness_lvl: 1,
+  cardio_lvl: 0,
+  fitness_lvl: 0,
   locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/theo_gvfblv.jpg")
@@ -108,8 +108,8 @@ user = User.new(
   password: '123456',
   address: '30 Rue Haxo, 13001 Marseille',
   musculation_lvl: 3,
-  cardio_lvl: 1,
-  fitness_lvl: 3,
+  cardio_lvl: 0,
+  fitness_lvl: 0,
   locale: "fr"
 )
 file = URI.open("https://res.cloudinary.com/dx1sso7tq/image/upload/v1678912646/gym-buddy/damien_c706eu.jpg")
@@ -152,26 +152,5 @@ DESCS = [
     name: "#{I18n.with_locale('fr') { I18n.l(event.start_time, format: '%d %B') }} de #{event.start_time.strftime('%Hh%M')} à #{event.end_time.strftime('%Hh%M')}"
   )
 end
-
-custom_day = Date.today.day
-custom_hour = 18
-custom_mins = 0
-custom_event = Event.new(
-  start_time: DateTime.new(2023, 3, custom_day, custom_hour, custom_mins, 0),
-  gym_id: 1,
-  owner_id: 1,
-  description: "Manque un gros costaud pour un entraînement avec les copaings du Wagon !",
-  musculation: true,
-  cardio: false,
-  fitness: false,
-  slots: 3
-)
-custom_event.end_time = custom_event.start_time + 3600
-custom_event.save!
-
-Chatroom.create!(
-  event: custom_event,
-  name: "#{I18n.with_locale('fr') { I18n.l(custom_event.start_time, format: '%d %B') }} - #{custom_event.start_time.strftime('%Hh%M')} à #{custom_event.end_time.strftime('%Hh%M')}"
-)
 
 puts "OK!"

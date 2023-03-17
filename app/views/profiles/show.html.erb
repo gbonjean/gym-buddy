@@ -39,18 +39,28 @@
         <div>
           <div class="mb-3">
             <h4 class="card-title"><%= I18n.t 'disciplines.bodybuilding' %></h4>
-            <div class="d-flex justify-content-between mb-0">
-              <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
-              <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
-              <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
-            </div>
             <% if @user.musculation_lvl.positive? %>
               <% case @user.musculation_lvl %>
               <% when 1 %>
+                <div class="d-flex justify-content-between mb-0">
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                </div>
                 <input type="range" class="form-range" value="0" min="0" max="100" id="customRange2" disabled>
               <% when 2 %>
+                <div class="d-flex justify-content-between mb-0">
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                </div>
                 <input type="range" class="form-range" value="52" min="0" max="100" id="customRange2" disabled>
               <% when 3 %>
+                <div class="d-flex justify-content-between mb-0">
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                </div>
                 <input type="range" class="form-range" value="100" min="0" max="100" id="customRange2" disabled>
               <% end %>
             <% else %>
@@ -59,18 +69,28 @@
           </div>
           <div class="mb-3">
             <h4 class="card-title"><%= I18n.t 'disciplines.cardio' %></h4>
-            <div class="d-flex justify-content-between mb-0">
-              <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
-              <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
-              <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
-            </div>
             <% if @user.cardio_lvl.positive? %>
               <% case @user.cardio_lvl %>
               <% when 1 %>
+                <div class="d-flex justify-content-between mb-0">
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                </div>
                 <input type="range" class="form-range" value="0" min="0" max="100" id="customRange2" disabled>
               <% when 2 %>
+                <div class="d-flex justify-content-between mb-0">
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                </div>
                 <input type="range" class="form-range" value="52" min="0" max="100" id="customRange2" disabled>
               <% when 3 %>
+                <div class="d-flex justify-content-between mb-0">
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                </div>
                 <input type="range" class="form-range" value="100" min="0" max="100" id="customRange2" disabled>
               <% end %>
             <% else %>
@@ -79,18 +99,28 @@
           </div>
           <div class="mb-0">
             <h4 class="card-title"><%= I18n.t 'disciplines.fitness' %></h4>
-            <div class="d-flex justify-content-between mb-0">
-              <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
-              <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
-              <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
-            </div>
             <% if @user.fitness_lvl.positive? %>
               <% case @user.fitness_lvl %>
               <% when 1 %>
+                <div class="d-flex justify-content-between mb-0">
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                  <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                </div>
                 <input type="range" class="form-range" value="0" min="0" max="100" id="customRange2" disabled>
               <% when 2 %>
+                  <div class="d-flex justify-content-between mb-0">
+                    <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                    <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                    <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                  </div>
                 <input type="range" class="form-range" value="52" min="0" max="100" id="customRange2" disabled>
               <% when 3 %>
+                <div class="d-flex justify-content-between mb-0">
+                    <p class="level-text"><%= I18n.t 'disciplines.levels.beginner' %></p>
+                    <p class="level-text"><%= I18n.t 'disciplines.levels.intermediate' %></p>
+                    <p class="level-text"><%= I18n.t 'disciplines.levels.expert' %></p>
+                  </div>
                 <input type="range" class="form-range" value="100" min="0" max="100" id="customRange2" disabled>
               <% end %>
             <% else %>

@@ -80,6 +80,7 @@ p {
 
 .of-cover {
   object-fit: cover;
+  object-position: center top;
 }
 
 .progress {
@@ -132,12 +133,19 @@ button:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
+button.accordion-button:hover, button.accordion-button:active {
+  color: $pumpkin !important;
+  border: 2px solid $pumpkin;
+  background-color: white;
+  box-shadow: none;
+}
+
 .notification-pill {
   width: 20px;
   height: 20px;
   background-color: white;
   position: relative;
-  bottom: 50px;
+  bottom: 40px;
   left: 30px;
   line-height: 1.75;
   text-align: center;
